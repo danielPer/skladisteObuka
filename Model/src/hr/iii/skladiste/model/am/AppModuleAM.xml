@@ -8,14 +8,8 @@
   InheritPersonalization="merge"
   ClearCacheOnRollback="true">
   <ViewUsage
-    Name="TIzdatniceSta1"
-    ViewObjectName="hr.iii.skladiste.model.VO.TIzdatniceStaVO"/>
-  <ViewUsage
     Name="TIzdatniceZag1"
     ViewObjectName="hr.iii.skladiste.model.VO.TIzdatniceZagVO"/>
-  <ViewUsage
-    Name="TPrimkeSta1"
-    ViewObjectName="hr.iii.skladiste.model.VO.TPrimkeStaVO"/>
   <ViewUsage
     Name="TPrimkeZag1"
     ViewObjectName="hr.iii.skladiste.model.VO.TPrimkeZagVO"/>

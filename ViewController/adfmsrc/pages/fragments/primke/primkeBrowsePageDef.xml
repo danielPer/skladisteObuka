@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="primkeEditPageDef"
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="primkeBrowsePageDef"
                 Package="pages.fragments.primke">
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="TPrimkeSta2" RangeSize="25" DataControl="AppModuleAMDataControl" id="TPrimkeSta2Iterator"/>
     <iterator Binds="TPrimkeZag1" RangeSize="25" DataControl="AppModuleAMDataControl" id="TPrimkeZag1Iterator"/>
+    <iterator Binds="TPrimkeSta2" RangeSize="25" DataControl="AppModuleAMDataControl" id="TPrimkeSta2Iterator"/>
     <searchRegion Binds="TPrimkeSta2Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TPrimkeSta2Query"/>
   </executables>
   <bindings>
-    <action IterBinding="TPrimkeSta2Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
     <list IterBinding="TPrimkeZag1Iterator" StaticList="false" Uses="LOV_IdDobavljaca" id="IdDobavljaca"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="TPrimkeZag1Iterator" StaticList="false" Uses="LOV_IdSkladista" id="IdSkladista"
@@ -42,6 +41,10 @@
     </attributeValues>
     <list IterBinding="TPrimkeZag1Iterator" StaticList="false" Uses="LOV_OznakaPotvrde" id="OznakaPotvrde"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="TPrimkeZag1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="TPrimkeZag1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="TPrimkeZag1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="TPrimkeZag1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
     <tree IterBinding="TPrimkeSta2Iterator" id="TPrimkeSta2">
       <nodeDefinition DefName="hr.iii.skladiste.model.VO.TPrimkeStaVO" Name="TPrimkeSta20">
         <AttrNames>
@@ -51,5 +54,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="TPrimkeZag1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

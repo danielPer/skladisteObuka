@@ -53,9 +53,9 @@
       <property
          name="y">389.94824</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">545.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -116,5 +116,38 @@
          name="fromOutcome">cancel</property>
       <property
          name="sdm:polyPoints">B50,545.0,443.59766,726.0,583.59766,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall11">
+      <property
+         name="activityId">SetCurrentRowWithKeyValue</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">581.44824</property>
+      <property
+         name="x">361.7002</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase12"
+      from="Router2"
+      to="MethodCall11">
+      <property
+         name="fromOutcome">edit</property>
+      <property
+         name="sdm:polyPoints">B50,146.0,436.24707,320.7002,581.09766,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase13"
+      from="MethodCall11"
+      to="View5">
+      <property
+         name="fromOutcome">setCurrentRowWithKeyValue</property>
+      <property
+         name="sdm:polyPoints">T50,361.7002,527.09766,504.0,393.09766,L54</property>
    </ControlFlowCase>
 </SDM>

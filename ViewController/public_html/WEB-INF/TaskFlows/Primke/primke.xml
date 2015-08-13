@@ -15,7 +15,7 @@
       </task-flow-reference>
       <input-parameter id="__1">
         <name>isPrimke</name>
-        <value>-1</value>
+        <value>#{pageFlowScope.idPrimke}</value>
       </input-parameter>
     </task-flow-call>
     <control-flow-rule id="__2">

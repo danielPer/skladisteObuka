@@ -15,10 +15,10 @@
     </input-parameter-definition>
     <router id="router1">
       <case id="__4">
-        <expression>#{pageFlowScope.idPrimke=='-1'}</expression>
+        <expression>#{pageFlowScope.idPrimke==-1}</expression>
         <outcome>insert</outcome>
       </case>
-      <default-outcome>insert</default-outcome>
+      <default-outcome>edit</default-outcome>
     </router>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>
@@ -41,11 +41,21 @@
         <rollback/>
       </outcome>
     </task-flow-return>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__2">
       <from-activity-id>router1</from-activity-id>
       <control-flow-case id="__3">
         <from-outcome>insert</from-outcome>
         <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__5">
@@ -64,6 +74,13 @@
       <control-flow-case id="__9">
         <from-outcome>cancel</from-outcome>
         <to-activity-id>cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id>primkeEdit</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

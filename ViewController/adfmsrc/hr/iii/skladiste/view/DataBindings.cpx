@@ -11,12 +11,18 @@
           usageId="hr_iii_skladiste_view_editPrimke_editPrimke_CreateInsertPageDef"/>
     <page path="/pages/fragments/primke/primkeEdit.jsff" usageId="hr_iii_skladiste_view_primkeEditPageDef"/>
     <page path="/pages/primke.jsf" usageId="hr_iii_skladiste_view_primkePageDef"/>
+    <page path="/pages/fragments/primke/primkeBrowse.jsff" usageId="hr_iii_skladiste_view_primkeBrowsePageDef"/>
+    <page path="/WEB-INF/TaskFlows/Primke/editPrimke.xml#editPrimke@SetCurrentRowWithKeyValue"
+          usageId="hr_iii_skladiste_view_editPrimke_editPrimke_SetCurrentRowWithKeyValuePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="hr_iii_skladiste_view_editPrimke_editPrimke_CreateInsertPageDef"
           path="TaskFlows.Primke.editPrimke_editPrimke_CreateInsertPageDef"/>
     <page id="hr_iii_skladiste_view_primkeEditPageDef" path="pages.fragments.primke.primkeEditPageDef"/>
     <page id="hr_iii_skladiste_view_primkePageDef" path="pages.primkePageDef"/>
+    <page id="hr_iii_skladiste_view_primkeBrowsePageDef" path="pages.fragments.primke.primkeBrowsePageDef"/>
+    <page id="hr_iii_skladiste_view_editPrimke_editPrimke_SetCurrentRowWithKeyValuePageDef"
+          path="TaskFlows.Primke.editPrimke_editPrimke_SetCurrentRowWithKeyValuePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleAMDataControl" Package="hr.iii.skladiste.model.am"
