@@ -173,28 +173,28 @@
   </ViewAttribute>
   <ViewAttribute
     Name="UserDodavanja"
-    IsNotNull="true"
+    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="UserDodavanja"
     EntityUsage="TPrimkeZagEO"
     AliasName="USER_DODAVANJA"/>
   <ViewAttribute
     Name="DatumDodavanja"
-    IsNotNull="true"
+    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="DatumDodavanja"
     EntityUsage="TPrimkeZagEO"
     AliasName="DATUM_DODAVANJA"/>
   <ViewAttribute
     Name="UserIzmjene"
-    IsNotNull="true"
+    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="UserIzmjene"
     EntityUsage="TPrimkeZagEO"
     AliasName="USER_IZMJENE"/>
   <ViewAttribute
     Name="DatumIzmjene"
-    IsNotNull="true"
+    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="DatumIzmjene"
     EntityUsage="TPrimkeZagEO"

@@ -67,8 +67,10 @@
         <f:facet name="menus"/>
         <f:facet name="toolbar">
           <af:toolbar id="t2">
-            <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
-                       disabled="#{!bindings.CreateInsert.enabled}" id="b1" partialSubmit="false"/>
+            <af:button actionListener="#{bindings.CreateInsert.execute}" text="Dodaj stavku"
+                       disabled="#{!bindings.CreateInsert.enabled}" id="b1"/>
+            <af:button actionListener="#{bindings.Delete.execute}" text="Ukloni stavku"
+                       id="b4" immediate="true"/>
           </af:toolbar>
         </f:facet>
         <f:facet name="statusbar"/>
@@ -79,7 +81,7 @@
                   fetchSize="#{bindings.TPrimkeSta2.rangeSize}"
                   filterModel="#{bindings.TPrimkeSta2Query.queryDescriptor}"
                   queryListener="#{bindings.TPrimkeSta2Query.processQuery}" filterVisible="true" varStatus="vs" id="t1"
-                  partialTriggers="::b1">
+                  partialTriggers="::b1 ::b4">
           <af:column sortProperty="#{bindings.TPrimkeSta2.hints.IdArtikla.name}" filterable="true" sortable="true"
                      headerText="#{bindings.TPrimkeSta2.hints.IdArtikla.label}" id="c1">
             <af:selectOneChoice value="#{row.bindings.IdArtikla.inputValue}" label="#{row.bindings.IdArtikla.label}"

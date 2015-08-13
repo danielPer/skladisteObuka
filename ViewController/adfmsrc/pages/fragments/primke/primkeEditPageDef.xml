@@ -51,5 +51,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="TPrimkeSta2Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

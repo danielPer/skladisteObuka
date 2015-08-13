@@ -56,11 +56,6 @@
           <f:selectItems value="#{bindings.OznakaPotvrde.items}" id="si3"/>
           <f:validator binding="#{bindings.OznakaPotvrde.validator}"/>
         </af:selectOneChoice>
-        <af:panelLabelAndMessage label="#{bindings.Id.hints.label}" id="plam1">
-          <af:outputFormatted value="#{bindings.Id.inputValue}" id="of1">
-            <af:convertNumber groupingUsed="false" pattern="#{bindings.Id.format}"/>
-          </af:outputFormatted>
-        </af:panelLabelAndMessage>
         <f:facet name="footer">
           <af:panelGroupLayout layout="horizontal" id="pgl1">
             <af:button actionListener="#{bindings.First.execute}" text="First" disabled="#{!bindings.First.enabled}"
@@ -74,7 +69,7 @@
             <af:button text="Nova primka" id="b5" action="edipPrimke">
               <af:setPropertyListener from="-1" to="#{pageFlowScope.idPrimke}" type="action"/>
             </af:button>
-            <af:button text="button 1" id="b6" action="edipPrimke">
+            <af:button text="Izmjeni primku" id="b6" action="edipPrimke">
               <af:setPropertyListener from="1" to="#{pageFlowScope.idPrimke}" type="action"/>
             </af:button>
           </af:panelGroupLayout>

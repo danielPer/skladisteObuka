@@ -109,47 +109,49 @@
    </Attribute>
    <Attribute
       Name="UserDodavanja"
-      IsNotNull="true"
       Precision="30"
       ColumnName="USER_DODAVANJA"
       SQLType="VARCHAR"
       Type="java.lang.String"
       ColumnType="VARCHAR2"
-      TableName="T_PRIMKE_STA" >
+      TableName="T_PRIMKE_STA"
+      RetrievedOnInsert="true">
       <DesignTime>
          <Attr Name="_DisplaySize" Value="30" />
       </DesignTime>
    </Attribute>
    <Attribute
       Name="DatumDodavanja"
-      IsNotNull="true"
       ColumnName="DATUM_DODAVANJA"
       SQLType="DATE"
       Type="java.sql.Timestamp"
       ColumnType="DATE"
-      TableName="T_PRIMKE_STA" >
+      TableName="T_PRIMKE_STA"
+      RetrievedOnInsert="true">
    </Attribute>
    <Attribute
       Name="UserIzmjene"
-      IsNotNull="true"
       Precision="30"
       ColumnName="USER_IZMJENE"
       SQLType="VARCHAR"
       Type="java.lang.String"
       ColumnType="VARCHAR2"
-      TableName="T_PRIMKE_STA" >
+      TableName="T_PRIMKE_STA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true">
       <DesignTime>
          <Attr Name="_DisplaySize" Value="30" />
       </DesignTime>
    </Attribute>
    <Attribute
       Name="DatumIzmjene"
-      IsNotNull="true"
       ColumnName="DATUM_IZMJENE"
       SQLType="DATE"
       Type="java.sql.Timestamp"
       ColumnType="DATE"
-      TableName="T_PRIMKE_STA" >
+      TableName="T_PRIMKE_STA"
+      RetrievedOnInsert="true"
+      RetrievedOnUpdate="true">
    </Attribute>
    <AccessorAttribute
       Name="TPrimkeZag"
