@@ -13,6 +13,28 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="ArtikliLOV1"
+    ViewObjectName="hr.iii.skladiste.VO.ArtikliLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_IdArtikla"
+    ListVOName="ArtikliLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IdArtikla"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NazivExpr"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="TPrimkeStaEO"
     Entity="hr.iii.skladiste.model.Entity.TPrimkeStaEO"/>
@@ -22,7 +44,8 @@
     PrecisionRule="true"
     EntityAttrName="Id"
     EntityUsage="TPrimkeStaEO"
-    AliasName="ID"/>
+    AliasName="ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="IdArtikla"
     IsUnique="true"
@@ -30,7 +53,15 @@
     PrecisionRule="true"
     EntityAttrName="IdArtikla"
     EntityUsage="TPrimkeStaEO"
-    AliasName="ID_ARTIKLA"/>
+    AliasName="ID_ARTIKLA"
+    LOVName="LOV_IdArtikla">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IdPrimke"
     IsUnique="true"
@@ -38,7 +69,8 @@
     PrecisionRule="true"
     EntityAttrName="IdPrimke"
     EntityUsage="TPrimkeStaEO"
-    AliasName="ID_PRIMKE"/>
+    AliasName="ID_PRIMKE"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="Kolicina"
     IsNotNull="true"

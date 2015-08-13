@@ -13,6 +13,72 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="DobavljaciLOV1"
+    ViewObjectName="hr.iii.skladiste.VO.DobavljaciLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SkladistaLOV1"
+    ViewObjectName="hr.iii.skladiste.VO.SkladistaLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OznakaPotvrdenoLOV1"
+    ViewObjectName="hr.iii.skladiste.VO.OznakaPotvrdenoLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_IdDobavljaca"
+    ListVOName="DobavljaciLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IdDobavljaca"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NazivExpr"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_IdSkladista"
+    ListVOName="SkladistaLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IdSkladista"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NazivExpr"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OznakaPotvrde"
+    ListVOName="OznakaPotvrdenoLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OznakaPotvrde"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Oznaka"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Label"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="TPrimkeZagEO"
     Entity="hr.iii.skladiste.model.Entity.TPrimkeZagEO"/>
@@ -22,21 +88,38 @@
     PrecisionRule="true"
     EntityAttrName="Id"
     EntityUsage="TPrimkeZagEO"
-    AliasName="ID"/>
+    AliasName="ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="IdDobavljaca"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="IdDobavljaca"
     EntityUsage="TPrimkeZagEO"
-    AliasName="ID_DOBAVLJACA"/>
+    AliasName="ID_DOBAVLJACA"
+    LOVName="LOV_IdDobavljaca">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IdSkladista"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="IdSkladista"
     EntityUsage="TPrimkeZagEO"
-    AliasName="ID_SKLADISTA"/>
+    AliasName="ID_SKLADISTA"
+    LOVName="LOV_IdSkladista">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Broj"
     IsUnique="true"
@@ -79,7 +162,15 @@
     PrecisionRule="true"
     EntityAttrName="OznakaPotvrde"
     EntityUsage="TPrimkeZagEO"
-    AliasName="OZNAKA_POTVRDE"/>
+    AliasName="OZNAKA_POTVRDE"
+    LOVName="LOV_OznakaPotvrde">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="UserDodavanja"
     IsNotNull="true"

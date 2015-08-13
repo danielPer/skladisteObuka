@@ -30,11 +30,11 @@ FROM
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.math.BigInteger"
+    Type="java.lang.Integer"
     ColumnType="BIGINT"
     AliasName="ID"
     Expression="ID"
-    SQLType="NUMERIC"/>
+    SQLType="INTEGER"/>
   <ViewAttribute
     Name="Sifra"
     IsUpdateable="false"
@@ -92,7 +92,7 @@ FROM
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR">
     <TransientExpression
-      trustMode="untrusted"><![CDATA[NazivDuzi == null ? Naziv . NazivDuzi]]></TransientExpression>
+      trustMode="untrusted"><![CDATA[NazivDuzi == null ? Naziv : NazivDuzi]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
   </ViewAttribute>

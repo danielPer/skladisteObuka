@@ -37,9 +37,15 @@
       Scale="0"
       ColumnName="ID_ARTIKLA"
       SQLType="NUMERIC"
-      Type="java.math.BigInteger"
+      Type="java.lang.Integer"
       ColumnType="NUMBER"
       TableName="T_PRIMKE_STA" >
+      <Properties>
+         <SchemaBasedProperties>
+            <LABEL
+               ResId="hr.iii.skladiste.model.Entity.TPrimkeStaEO.IdArtikla_LABEL"/>
+         </SchemaBasedProperties>
+      </Properties>
    </Attribute>
    <Attribute
       Name="IdPrimke"
@@ -53,8 +59,7 @@
       TableName="T_PRIMKE_STA"
       RetrievedOnInsert="true"
       IsUpdateable="while_insert">
-      <TransientExpression
-         trustMode="trusted"><![CDATA[
+      <TransientExpression><![CDATA[
 (new oracle.jbo.server.SequenceImpl("SEKVENCA_ZA_ID", adf.object.getDBTransaction()))
       ]]></TransientExpression>
       <RecalcCondition
@@ -70,6 +75,16 @@
       Type="java.math.BigDecimal"
       ColumnType="NUMBER"
       TableName="T_PRIMKE_STA" >
+      <Properties>
+         <SchemaBasedProperties>
+            <LABEL
+               ResId="hr.iii.skladiste.model.Entity.TPrimkeStaEO.Kolicina_LABEL"/>
+            <FMT_FORMATTER
+               ResId="hr.iii.skladiste.model.Entity.TPrimkeStaEO.Kolicina_FMT_FORMATTER"/>
+            <FMT_FORMAT
+               ResId="hr.iii.skladiste.model.Entity.TPrimkeStaEO.Kolicina_FMT_FORMAT"/>
+         </SchemaBasedProperties>
+      </Properties>
    </Attribute>
    <Attribute
       Name="NabavnaCijena"
@@ -81,6 +96,16 @@
       Type="java.math.BigDecimal"
       ColumnType="NUMBER"
       TableName="T_PRIMKE_STA" >
+      <Properties>
+         <SchemaBasedProperties>
+            <LABEL
+               ResId="hr.iii.skladiste.model.Entity.TPrimkeStaEO.NabavnaCijena_LABEL"/>
+            <FMT_FORMAT
+               ResId="hr.iii.skladiste.model.Entity.TPrimkeStaEO.NabavnaCijena_FMT_FORMAT"/>
+            <FMT_FORMATTER
+               ResId="hr.iii.skladiste.model.Entity.TPrimkeStaEO.NabavnaCijena_FMT_FORMATTER"/>
+         </SchemaBasedProperties>
+      </Properties>
    </Attribute>
    <Attribute
       Name="UserDodavanja"
@@ -211,4 +236,8 @@
          <Item Value="hr.iii.skladiste.model.Entity.TPrimkeStaEO.IdPrimke" />
       </AttrArray>
    </Key>
+   <ResourceBundle>
+      <PropertiesBundle
+         PropertiesFile="hr.iii.skladiste.model.ModelBundle"/>
+   </ResourceBundle>
 </Entity>

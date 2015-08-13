@@ -8,10 +8,10 @@
   SeparateXMLFiles="true"
   PackageName="hr.iii.skladiste.model">
   <DesignTime>
-    <Attr Name="_jprName" Value="../../../../../Model.jpr"/>
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_NamedConnection" Value="Connection1"/>
     <Attr Name="_appModuleNames0" Value="hr.iii.skladiste.model.am.AppModuleAM"/>
+    <Attr Name="_jprName" Value="../../../../../Model.jpr"/>
   </DesignTime>
   <Containee
     Name="am"
@@ -53,4 +53,17 @@
       <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
+  <AppContainee
+    Name="CommonLOVs"
+    FullName="hr.iii.skladiste.CommonLOVs"
+    ObjectType="JboProject">
+    <DesignTime>
+      <Attr Name="_SourceName" Value="commonLOVlib.jar"/>
+    </DesignTime>
+  </AppContainee>
+  <AppModuleUsage
+    Name="CommonLOVsAM"
+    FullName="hr.iii.skladiste.am.CommonLOVsAM"
+    ConfigurationName="hr.iii.skladiste.am.CommonLOVsAMShared"
+    SharedScope="2"/>
 </JboProject>

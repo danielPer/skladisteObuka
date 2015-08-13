@@ -21,7 +21,6 @@
     TableName="T_PRIMKE_ZAG"
     PrimaryKey="true"
     IsNotNull="true"
-    RetrievedOnInsert="true"
     IsUpdateable="while_insert">
     <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("SEKVENCA_ZA_ID", adf.object.getDBTransaction()))]]></TransientExpression>
     <RecalcCondition
@@ -34,9 +33,16 @@
     Scale="0"
     ColumnName="ID_DOBAVLJACA"
     SQLType="NUMERIC"
-    Type="java.math.BigInteger"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="T_PRIMKE_ZAG"/>
+    TableName="T_PRIMKE_ZAG">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.IdDobavljaca_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IdSkladista"
     IsNotNull="true"
@@ -44,9 +50,16 @@
     Scale="0"
     ColumnName="ID_SKLADISTA"
     SQLType="NUMERIC"
-    Type="java.math.BigInteger"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="T_PRIMKE_ZAG"/>
+    TableName="T_PRIMKE_ZAG">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.IdSkladista_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Broj"
     IsUnique="true"
@@ -60,23 +73,50 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.Broj_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="DatumIsporuke"
-    IsNotNull="true"
     ColumnName="DATUM_ISPORUKE"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
-    ColumnType="DATE"
-    TableName="T_PRIMKE_ZAG"/>
+    Type="oracle.jbo.domain.Date"
+    ColumnType="NUMBER"
+    TableName="T_PRIMKE_ZAG">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.DatumIsporuke_LABEL"/>
+        <FMT_FORMATTER
+          ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.DatumIsporuke_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.DatumIsporuke_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="DatumZaprimanja"
     IsNotNull="true"
     ColumnName="DATUM_ZAPRIMANJA"
     SQLType="DATE"
-    Type="java.sql.Timestamp"
+    Type="oracle.jbo.domain.Date"
     ColumnType="DATE"
-    TableName="T_PRIMKE_ZAG"/>
+    TableName="T_PRIMKE_ZAG">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.DatumZaprimanja_LABEL"/>
+        <FMT_FORMATTER
+          ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.DatumZaprimanja_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.DatumZaprimanja_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Opis"
     IsUnique="true"
@@ -90,6 +130,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.Opis_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="OpisDuzi"
@@ -102,6 +148,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.OpisDuzi_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="OznakaPotvrde"
@@ -115,6 +167,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.OznakaPotvrde_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="UserDodavanja"
@@ -247,4 +305,8 @@
       <Item Value="hr.iii.skladiste.model.Entity.TPrimkeZagEO.IdSkladista"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="hr.iii.skladiste.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

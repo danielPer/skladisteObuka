@@ -23,8 +23,7 @@
     PrimaryKey="true"
     RetrievedOnInsert="true"
     IsUpdateable="while_insert">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("SEKVENCA_ZA_ID",object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("SEKVENCA_ZA_ID",object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
   </Attribute>
@@ -36,9 +35,16 @@
     Scale="0"
     ColumnName="ID_ARTIKLA"
     SQLType="NUMERIC"
-    Type="java.math.BigInteger"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
-    TableName="T_IZDATNICE_STA"/>
+    TableName="T_IZDATNICE_STA">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.Entity.TIzdatniceStaEO.IdArtikla_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="IdIzdatnice"
     IsUnique="true"
@@ -53,8 +59,7 @@
     RetrievedOnInsert="true"
     RetrievedOnUpdate="true"
     IsUpdateable="while_insert">
-    <TransientExpression
-      trustMode="trusted"><![CDATA[(new oracle.jbo.server.SequenceImpl("SEKVENCA_ZA_ID",object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("SEKVENCA_ZA_ID",object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
   </Attribute>
@@ -67,7 +72,18 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="T_IZDATNICE_STA"/>
+    TableName="T_IZDATNICE_STA">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.Entity.TIzdatniceStaEO.Kolicina_LABEL"/>
+        <FMT_FORMATTER
+          ResId="hr.iii.skladiste.model.Entity.TIzdatniceStaEO.Kolicina_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="hr.iii.skladiste.model.Entity.TIzdatniceStaEO.Kolicina_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ProsjecnaCijena"
     IsNotNull="true"
@@ -77,7 +93,18 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="T_IZDATNICE_STA"/>
+    TableName="T_IZDATNICE_STA">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.Entity.TIzdatniceStaEO.ProsjecnaCijena_LABEL"/>
+        <FMT_FORMAT
+          ResId="hr.iii.skladiste.model.Entity.TIzdatniceStaEO.ProsjecnaCijena_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="hr.iii.skladiste.model.Entity.TIzdatniceStaEO.ProsjecnaCijena_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="UserDodavanja"
     IsNotNull="true"
@@ -179,4 +206,8 @@
       <Item Value="hr.iii.skladiste.model.Entity.TIzdatniceStaEO.IdIzdatnice"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="hr.iii.skladiste.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>
