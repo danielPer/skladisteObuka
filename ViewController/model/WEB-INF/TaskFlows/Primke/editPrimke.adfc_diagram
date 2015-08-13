@@ -53,9 +53,9 @@
       <property
          name="y">389.94824</property>
       <property
-         name="x">545.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">545.0</property>
    </View>
    <ControlFlowCase
       islink="true"

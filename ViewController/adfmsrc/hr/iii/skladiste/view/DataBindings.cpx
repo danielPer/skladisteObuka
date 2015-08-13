@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.8" id="DataBindings"
              SeparateXMLFiles="false" Package="hr.iii.skladiste.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
   <pageMap>
     <page path="/WEB-INF/TaskFlows/Primke/editPrimke.xml#editPrimke@CreateInsert"
           usageId="hr_iii_skladiste_view_editPrimke_editPrimke_CreateInsertPageDef"/>
+    <page path="/pages/fragments/primke/primkeEdit.jsff" usageId="hr_iii_skladiste_view_primkeEditPageDef"/>
+    <page path="/pages/primke.jsf" usageId="hr_iii_skladiste_view_primkePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="hr_iii_skladiste_view_editPrimke_editPrimke_CreateInsertPageDef"
           path="TaskFlows.Primke.editPrimke_editPrimke_CreateInsertPageDef"/>
+    <page id="hr_iii_skladiste_view_primkeEditPageDef" path="pages.fragments.primke.primkeEditPageDef"/>
+    <page id="hr_iii_skladiste_view_primkePageDef" path="pages.primkePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleAMDataControl" Package="hr.iii.skladiste.model.am"

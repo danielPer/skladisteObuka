@@ -5,7 +5,26 @@
     <data-control-scope>
       <shared/>
     </data-control-scope>
-    <view id="primkeBrowse"></view>
+    <view id="primkeBrowse">
+      <page>/pages/fragments/primke/primkeBrowse.jsff</page>
+    </view>
+    <task-flow-call id="editPrimke">
+      <task-flow-reference>
+        <document>/WEB-INF/TaskFlows/Primke/editPrimke.xml</document>
+        <id>editPrimke</id>
+      </task-flow-reference>
+      <input-parameter id="__1">
+        <name>isPrimke</name>
+        <value>-1</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>primkeBrowse</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>edipPrimke</from-outcome>
+        <to-activity-id>editPrimke</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

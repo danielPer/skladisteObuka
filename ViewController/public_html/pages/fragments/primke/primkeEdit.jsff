@@ -2,7 +2,121 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelSplitter id="ps1" orientation="vertical">
-    <f:facet name="first"/>
-    <f:facet name="second"/>
+    <f:facet name="first">
+      <af:panelFormLayout id="pfl1">
+        <af:inputText value="#{bindings.IdDobavljaca.inputValue}" label="#{bindings.IdDobavljaca.hints.label}"
+                      required="#{bindings.IdDobavljaca.hints.mandatory}"
+                      columns="#{bindings.IdDobavljaca.hints.displayWidth}"
+                      maximumLength="#{bindings.IdDobavljaca.hints.precision}"
+                      shortDesc="#{bindings.IdDobavljaca.hints.tooltip}" id="it1">
+          <f:validator binding="#{bindings.IdDobavljaca.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.IdDobavljaca.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.IdSkladista.inputValue}" label="#{bindings.IdSkladista.hints.label}"
+                      required="#{bindings.IdSkladista.hints.mandatory}"
+                      columns="#{bindings.IdSkladista.hints.displayWidth}"
+                      maximumLength="#{bindings.IdSkladista.hints.precision}"
+                      shortDesc="#{bindings.IdSkladista.hints.tooltip}" id="it2">
+          <f:validator binding="#{bindings.IdSkladista.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.IdSkladista.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.Broj.inputValue}" label="#{bindings.Broj.hints.label}"
+                      required="#{bindings.Broj.hints.mandatory}" columns="#{bindings.Broj.hints.displayWidth}"
+                      maximumLength="#{bindings.Broj.hints.precision}" shortDesc="#{bindings.Broj.hints.tooltip}"
+                      id="it3">
+          <f:validator binding="#{bindings.Broj.validator}"/>
+        </af:inputText>
+        <af:inputDate value="#{bindings.DatumIsporuke.inputValue}" label="#{bindings.DatumIsporuke.hints.label}"
+                      required="#{bindings.DatumIsporuke.hints.mandatory}"
+                      columns="#{bindings.DatumIsporuke.hints.displayWidth}"
+                      shortDesc="#{bindings.DatumIsporuke.hints.tooltip}" id="id1">
+          <f:validator binding="#{bindings.DatumIsporuke.validator}"/>
+          <af:convertDateTime pattern="#{bindings.DatumIsporuke.format}"/>
+        </af:inputDate>
+        <af:inputDate value="#{bindings.DatumZaprimanja.inputValue}" label="#{bindings.DatumZaprimanja.hints.label}"
+                      required="#{bindings.DatumZaprimanja.hints.mandatory}"
+                      columns="#{bindings.DatumZaprimanja.hints.displayWidth}"
+                      shortDesc="#{bindings.DatumZaprimanja.hints.tooltip}" id="id2">
+          <f:validator binding="#{bindings.DatumZaprimanja.validator}"/>
+          <af:convertDateTime pattern="#{bindings.DatumZaprimanja.format}"/>
+        </af:inputDate>
+        <af:inputText value="#{bindings.Opis.inputValue}" label="#{bindings.Opis.hints.label}"
+                      required="#{bindings.Opis.hints.mandatory}" columns="#{bindings.Opis.hints.displayWidth}"
+                      maximumLength="#{bindings.Opis.hints.precision}" shortDesc="#{bindings.Opis.hints.tooltip}"
+                      id="it4">
+          <f:validator binding="#{bindings.Opis.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.OpisDuzi.inputValue}" label="#{bindings.OpisDuzi.hints.label}"
+                      required="#{bindings.OpisDuzi.hints.mandatory}" columns="#{bindings.OpisDuzi.hints.displayWidth}"
+                      maximumLength="#{bindings.OpisDuzi.hints.precision}"
+                      shortDesc="#{bindings.OpisDuzi.hints.tooltip}" id="it5">
+          <f:validator binding="#{bindings.OpisDuzi.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.OznakaPotvrde.inputValue}" label="#{bindings.OznakaPotvrde.hints.label}"
+                      required="#{bindings.OznakaPotvrde.hints.mandatory}"
+                      columns="#{bindings.OznakaPotvrde.hints.displayWidth}"
+                      maximumLength="#{bindings.OznakaPotvrde.hints.precision}"
+                      shortDesc="#{bindings.OznakaPotvrde.hints.tooltip}" id="it6">
+          <f:validator binding="#{bindings.OznakaPotvrde.validator}"/>
+        </af:inputText>
+      </af:panelFormLayout>
+    </f:facet>
+    <f:facet name="second">
+      <af:panelCollection id="pc1">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t2">
+            <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                       disabled="#{!bindings.CreateInsert.enabled}" id="b1" partialSubmit="false"/>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.TPrimkeSta2.collectionModel}" var="row" rows="#{bindings.TPrimkeSta2.rangeSize}"
+                  emptyText="#{bindings.TPrimkeSta2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.TPrimkeSta2.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.TPrimkeSta2.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.TPrimkeSta2.rangeSize}"
+                  filterModel="#{bindings.TPrimkeSta2Query.queryDescriptor}"
+                  queryListener="#{bindings.TPrimkeSta2Query.processQuery}" filterVisible="true" varStatus="vs" id="t1"
+                  partialTriggers="::b1">
+          <af:column sortProperty="#{bindings.TPrimkeSta2.hints.IdArtikla.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.TPrimkeSta2.hints.IdArtikla.label}" id="c1">
+            <af:inputText value="#{row.bindings.IdArtikla.inputValue}"
+                          label="#{bindings.TPrimkeSta2.hints.IdArtikla.label}"
+                          required="#{bindings.TPrimkeSta2.hints.IdArtikla.mandatory}"
+                          columns="#{bindings.TPrimkeSta2.hints.IdArtikla.displayWidth}"
+                          maximumLength="#{bindings.TPrimkeSta2.hints.IdArtikla.precision}"
+                          shortDesc="#{bindings.TPrimkeSta2.hints.IdArtikla.tooltip}" id="it7">
+              <f:validator binding="#{row.bindings.IdArtikla.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.TPrimkeSta2.hints.IdArtikla.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.TPrimkeSta2.hints.Kolicina.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.TPrimkeSta2.hints.Kolicina.label}" id="c2">
+            <af:inputText value="#{row.bindings.Kolicina.inputValue}"
+                          label="#{bindings.TPrimkeSta2.hints.Kolicina.label}"
+                          required="#{bindings.TPrimkeSta2.hints.Kolicina.mandatory}"
+                          columns="#{bindings.TPrimkeSta2.hints.Kolicina.displayWidth}"
+                          maximumLength="#{bindings.TPrimkeSta2.hints.Kolicina.precision}"
+                          shortDesc="#{bindings.TPrimkeSta2.hints.Kolicina.tooltip}" id="it8">
+              <f:validator binding="#{row.bindings.Kolicina.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.TPrimkeSta2.hints.Kolicina.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="#{bindings.TPrimkeSta2.hints.NabavnaCijena.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.TPrimkeSta2.hints.NabavnaCijena.label}" id="c3">
+            <af:inputText value="#{row.bindings.NabavnaCijena.inputValue}"
+                          label="#{bindings.TPrimkeSta2.hints.NabavnaCijena.label}"
+                          required="#{bindings.TPrimkeSta2.hints.NabavnaCijena.mandatory}"
+                          columns="#{bindings.TPrimkeSta2.hints.NabavnaCijena.displayWidth}"
+                          maximumLength="#{bindings.TPrimkeSta2.hints.NabavnaCijena.precision}"
+                          shortDesc="#{bindings.TPrimkeSta2.hints.NabavnaCijena.tooltip}" id="it9">
+              <f:validator binding="#{row.bindings.NabavnaCijena.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.TPrimkeSta2.hints.NabavnaCijena.format}"/>
+            </af:inputText>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </f:facet>
   </af:panelSplitter>
 </ui:composition>

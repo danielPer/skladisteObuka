@@ -7,6 +7,8 @@
       <property
          name="activityId">primkeBrowse</property>
       <property
+         name="page">/pages/fragments/primke/primkeBrowse.jsff</property>
+      <property
          name="start">true</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>primkeBrowse&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
@@ -15,8 +17,35 @@
       <property
          name="y">311.94824</property>
       <property
-         name="x">259.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">259.0</property>
    </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="taskFlowId">editPrimke</property>
+      <property
+         name="activityId">editPrimke</property>
+      <property
+         name="documentReference">/WEB-INF/TaskFlows/Primke/editPrimke.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editPrimke&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">352.1494</property>
+      <property
+         name="x">514.5</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">edipPrimke</property>
+      <property
+         name="sdm:polyPoints">R50,300.0,311.59766,473.5,351.79883,L50</property>
+   </ControlFlowCase>
 </SDM>

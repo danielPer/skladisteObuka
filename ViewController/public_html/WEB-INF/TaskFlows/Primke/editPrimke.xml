@@ -18,6 +18,7 @@
         <expression>#{pageFlowScope.idPrimke=='-1'}</expression>
         <outcome>insert</outcome>
       </case>
+      <default-outcome>insert</default-outcome>
     </router>
     <method-call id="CreateInsert">
       <method>#{bindings.CreateInsert.execute}</method>

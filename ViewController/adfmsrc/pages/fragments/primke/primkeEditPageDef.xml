@@ -4,6 +4,61 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="TPrimkeZag1" RangeSize="25" DataControl="AppModuleAMDataControl" id="TPrimkeZag1Iterator"/>
+    <iterator Binds="TPrimkeSta2" RangeSize="25" DataControl="AppModuleAMDataControl" id="TPrimkeSta2Iterator"/>
+    <searchRegion Binds="TPrimkeSta2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TPrimkeSta2Query"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <attributeValues IterBinding="TPrimkeZag1Iterator" id="IdDobavljaca">
+      <AttrNames>
+        <Item Value="IdDobavljaca"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TPrimkeZag1Iterator" id="IdSkladista">
+      <AttrNames>
+        <Item Value="IdSkladista"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TPrimkeZag1Iterator" id="Broj">
+      <AttrNames>
+        <Item Value="Broj"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TPrimkeZag1Iterator" id="DatumIsporuke">
+      <AttrNames>
+        <Item Value="DatumIsporuke"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TPrimkeZag1Iterator" id="DatumZaprimanja">
+      <AttrNames>
+        <Item Value="DatumZaprimanja"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TPrimkeZag1Iterator" id="Opis">
+      <AttrNames>
+        <Item Value="Opis"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TPrimkeZag1Iterator" id="OpisDuzi">
+      <AttrNames>
+        <Item Value="OpisDuzi"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TPrimkeZag1Iterator" id="OznakaPotvrde">
+      <AttrNames>
+        <Item Value="OznakaPotvrde"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="TPrimkeSta2Iterator" id="TPrimkeSta2">
+      <nodeDefinition DefName="hr.iii.skladiste.model.VO.TPrimkeStaVO" Name="TPrimkeSta20">
+        <AttrNames>
+          <Item Value="IdArtikla"/>
+          <Item Value="Kolicina"/>
+          <Item Value="NabavnaCijena"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="TPrimkeSta2Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
 </pageDefinition>
