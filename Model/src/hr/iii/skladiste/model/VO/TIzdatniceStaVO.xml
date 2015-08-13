@@ -87,28 +87,28 @@
     AliasName="PROSJECNA_CIJENA"/>
   <ViewAttribute
     Name="UserDodavanja"
-    IsNotNull="true"
+    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="UserDodavanja"
     EntityUsage="TIzdatniceStaEO"
     AliasName="USER_DODAVANJA"/>
   <ViewAttribute
     Name="DatumDodavanja"
-    IsNotNull="true"
+    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="DatumDodavanja"
     EntityUsage="TIzdatniceStaEO"
     AliasName="DATUM_DODAVANJA"/>
   <ViewAttribute
     Name="UserIzmjene"
-    IsNotNull="true"
+    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="UserIzmjene"
     EntityUsage="TIzdatniceStaEO"
     AliasName="USER_IZMJENE"/>
   <ViewAttribute
     Name="DatumIzmjene"
-    IsNotNull="true"
+    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="DatumIzmjene"
     EntityUsage="TIzdatniceStaEO"

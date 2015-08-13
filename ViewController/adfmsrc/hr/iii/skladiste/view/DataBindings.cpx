@@ -14,6 +14,14 @@
     <page path="/pages/fragments/primke/primkeBrowse.jsff" usageId="hr_iii_skladiste_view_primkeBrowsePageDef"/>
     <page path="/WEB-INF/TaskFlows/Primke/editPrimke.xml#editPrimke@SetCurrentRowWithKeyValue"
           usageId="hr_iii_skladiste_view_editPrimke_editPrimke_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/WEB-INF/TaskFlows/izdatnice/izdatniceEdit.xml#izdatniceEdit@CreateInsert"
+          usageId="hr_iii_skladiste_view_izdatniceEdit_izdatniceEdit_CreateInsertPageDef"/>
+    <page path="/WEB-INF/TaskFlows/izdatnice/izdatniceEdit.xml#izdatniceEdit@SetCurrentRowWithKeyValue"
+          usageId="hr_iii_skladiste_view_izdatniceEdit_izdatniceEdit_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/pages/fragments/izdatnice/IzdatniceBrowse.jsff"
+          usageId="hr_iii_skladiste_view_IzdatniceBrowsePageDef"/>
+    <page path="/pages/fragments/izdatnice/editIzdatnice.jsf" usageId="hr_iii_skladiste_view_editIzdatnicePageDef"/>
+    <page path="/pages/izdatnice.jsf" usageId="hr_iii_skladiste_view_izdatnicePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="hr_iii_skladiste_view_editPrimke_editPrimke_CreateInsertPageDef"
@@ -23,6 +31,13 @@
     <page id="hr_iii_skladiste_view_primkeBrowsePageDef" path="pages.fragments.primke.primkeBrowsePageDef"/>
     <page id="hr_iii_skladiste_view_editPrimke_editPrimke_SetCurrentRowWithKeyValuePageDef"
           path="TaskFlows.Primke.editPrimke_editPrimke_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="hr_iii_skladiste_view_izdatniceEdit_izdatniceEdit_CreateInsertPageDef"
+          path="TaskFlows.izdatnice.izdatniceEdit_izdatniceEdit_CreateInsertPageDef"/>
+    <page id="hr_iii_skladiste_view_izdatniceEdit_izdatniceEdit_SetCurrentRowWithKeyValuePageDef"
+          path="TaskFlows.izdatnice.izdatniceEdit_izdatniceEdit_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="hr_iii_skladiste_view_IzdatniceBrowsePageDef" path="pages.fragments.izdatnice.IzdatniceBrowsePageDef"/>
+    <page id="hr_iii_skladiste_view_editIzdatnicePageDef" path="pages.fragments.izdatnice.editIzdatnicePageDef"/>
+    <page id="hr_iii_skladiste_view_izdatnicePageDef" path="pages.izdatnicePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleAMDataControl" Package="hr.iii.skladiste.model.am"

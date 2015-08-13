@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelSplitter id="ps1" splitterPosition="250" orientation="vertical">
+    <f:facet name="first">
+      <af:panelFormLayout id="pfl1">
+        <af:selectOneChoice value="#{bindings.IdSkladista.inputValue}" label="#{bindings.IdSkladista.label}"
+                            required="#{bindings.IdSkladista.hints.mandatory}"
+                            shortDesc="#{bindings.IdSkladista.hints.tooltip}" readOnly="true" id="soc1">
+          <f:selectItems value="#{bindings.IdSkladista.items}" id="si1"/>
+          <f:validator binding="#{bindings.IdSkladista.validator}"/>
+        </af:selectOneChoice>
+        <af:selectOneChoice value="#{bindings.IdMt.inputValue}" label="#{bindings.IdMt.label}"
+                            required="#{bindings.IdMt.hints.mandatory}" shortDesc="#{bindings.IdMt.hints.tooltip}"
+                            readOnly="true" id="soc2">
+          <f:selectItems value="#{bindings.IdMt.items}" id="si2"/>
+          <f:validator binding="#{bindings.IdMt.validator}"/>
+        </af:selectOneChoice>
+        <af:inputText value="#{bindings.Broj.inputValue}" label="#{bindings.Broj.hints.label}"
+                      required="#{bindings.Broj.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.Broj.hints.displayWidth}" maximumLength="#{bindings.Broj.hints.precision}"
+                      shortDesc="#{bindings.Broj.hints.tooltip}" id="it1">
+          <f:validator binding="#{bindings.Broj.validator}"/>
+        </af:inputText>
+        <af:inputDate value="#{bindings.Datum.inputValue}" readOnly="true" label="#{bindings.Datum.hints.label}"
+                      required="#{bindings.Datum.hints.mandatory}" columns="#{bindings.Datum.hints.displayWidth}"
+                      shortDesc="#{bindings.Datum.hints.tooltip}" id="id1">
+          <f:validator binding="#{bindings.Datum.validator}"/>
+          <af:convertDateTime pattern="#{bindings.Datum.format}"/>
+        </af:inputDate>
+        <af:inputText value="#{bindings.Opis.inputValue}" label="#{bindings.Opis.hints.label}"
+                      required="#{bindings.Opis.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.Opis.hints.displayWidth}" maximumLength="#{bindings.Opis.hints.precision}"
+                      shortDesc="#{bindings.Opis.hints.tooltip}" id="it2">
+          <f:validator binding="#{bindings.Opis.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.OpisDuzi.inputValue}" label="#{bindings.OpisDuzi.hints.label}"
+                      required="#{bindings.OpisDuzi.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.OpisDuzi.hints.displayWidth}"
+                      maximumLength="#{bindings.OpisDuzi.hints.precision}"
+                      shortDesc="#{bindings.OpisDuzi.hints.tooltip}" id="it3">
+          <f:validator binding="#{bindings.OpisDuzi.validator}"/>
+        </af:inputText>
+        <af:selectOneChoice value="#{bindings.OznakaPotvrde.inputValue}" label="#{bindings.OznakaPotvrde.label}"
+                            required="#{bindings.OznakaPotvrde.hints.mandatory}"
+                            shortDesc="#{bindings.OznakaPotvrde.hints.tooltip}" readOnly="true" id="soc3">
+          <f:selectItems value="#{bindings.OznakaPotvrde.items}" id="si3"/>
+          <f:validator binding="#{bindings.OznakaPotvrde.validator}"/>
+        </af:selectOneChoice>
+        <f:facet name="footer">
+          <af:panelGroupLayout layout="horizontal" id="pgl1">
+            <af:button actionListener="#{bindings.First.execute}" text="First" disabled="#{!bindings.First.enabled}"
+                       partialSubmit="true" id="b1"/>
+            <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+            <af:button actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}"
+                       partialSubmit="true" id="b3"/>
+            <af:button actionListener="#{bindings.Last.execute}" text="Last" disabled="#{!bindings.Last.enabled}"
+                       partialSubmit="true" id="b4"/>
+            <af:button text="Nova izdatnica" id="b5" action="editIzdatnice" useWindow="true" windowHeight="500"
+                       windowWidth="500">
+              <af:setPropertyListener from="-1" to="#{pageFlowScope.idIzdatnice}" type="action"/>
+            </af:button>
+            <af:button text="Izmjeni izdatnicu" id="b6" action="editIzdatnice" useWindow="true" windowHeight="500"
+                       windowWidth="500">
+              <af:setPropertyListener from="#{bindings.Id.inputValue}" to="#{pageFlowScope.idIzdatnice}" type="action"/>
+            </af:button>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelFormLayout>
+    </f:facet>
+    <f:facet name="second">
+      <af:table value="#{bindings.TIzdatniceSta2.collectionModel}" var="row" rows="#{bindings.TIzdatniceSta2.rangeSize}"
+                emptyText="#{bindings.TIzdatniceSta2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.TIzdatniceSta2.collectionModel.selectedRow}"
+                selectionListener="#{bindings.TIzdatniceSta2.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.TIzdatniceSta2.rangeSize}"
+                filterModel="#{bindings.TIzdatniceSta2Query.queryDescriptor}"
+                queryListener="#{bindings.TIzdatniceSta2Query.processQuery}" filterVisible="true" varStatus="vs"
+                id="t1">
+        <af:column sortProperty="#{bindings.TIzdatniceSta2.hints.IdArtikla.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TIzdatniceSta2.hints.IdArtikla.label}" id="c1">
+          <af:selectOneChoice value="#{row.bindings.IdArtikla.inputValue}" label="#{row.bindings.IdArtikla.label}"
+                              required="#{bindings.TIzdatniceSta2.hints.IdArtikla.mandatory}"
+                              shortDesc="#{bindings.TIzdatniceSta2.hints.IdArtikla.tooltip}" readOnly="true" id="soc4">
+            <f:selectItems value="#{row.bindings.IdArtikla.items}" id="si4"/>
+            <f:validator binding="#{row.bindings.IdArtikla.validator}"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column sortProperty="#{bindings.TIzdatniceSta2.hints.Kolicina.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TIzdatniceSta2.hints.Kolicina.label}" id="c2">
+          <af:outputText value="#{row.Kolicina}" shortDesc="#{bindings.TIzdatniceSta2.hints.Kolicina.tooltip}" id="ot1">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TIzdatniceSta2.hints.Kolicina.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TIzdatniceSta2.hints.ProsjecnaCijena.name}" filterable="true"
+                   sortable="true" headerText="#{bindings.TIzdatniceSta2.hints.ProsjecnaCijena.label}" id="c3">
+          <af:outputText value="#{row.ProsjecnaCijena}"
+                         shortDesc="#{bindings.TIzdatniceSta2.hints.ProsjecnaCijena.tooltip}" id="ot2">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TIzdatniceSta2.hints.ProsjecnaCijena.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+    </f:facet>
+  </af:panelSplitter>
+</ui:composition>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1250" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="izdatnice">
+    <default-activity>IzdatniceBrowse</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="IzdatniceBrowse">
+      <page>/pages/fragments/izdatnice/IzdatniceBrowse.jsff</page>
+    </view>
+    <task-flow-call id="izdatniceEdit">
+      <task-flow-reference>
+        <document>/WEB-INF/TaskFlows/izdatnice/izdatniceEdit.xml</document>
+        <id>izdatniceEdit</id>
+      </task-flow-reference>
+      <input-parameter id="__1">
+        <name>idIzdatnice</name>
+        <value>#{pageFlowScope.idIzdatnice}</value>
+      </input-parameter>
+      <run-as-dialog>
+        <display-type>
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>IzdatniceBrowse</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>editIzdatnice</from-outcome>
+        <to-activity-id>izdatniceEdit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
