@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1250" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PristaPrizagfkAssoc"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="TPrimkeZag"
+    Cardinality="1"
+    Source="true"
+    Owner="hr.iii.skladiste.model.Entity.TPrimkeZagEO"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="TPrimkeZag"/>
+      <Attr Name="_foreignKey" Value="hr.iii.skladiste.model.Entity.TPrimkeZagEO.SysC008058"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="hr.iii.skladiste.model.Entity.TPrimkeZagEO.Id"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="TPrimkeSta"
+    Cardinality="-1"
+    Owner="hr.iii.skladiste.model.Entity.TPrimkeStaEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="TPrimkeSta"/>
+      <Attr Name="_foreignKey" Value="hr.iii.skladiste.model.Entity.TPrimkeStaEO.PristaPrizagfk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="hr.iii.skladiste.model.Entity.TPrimkeStaEO.IdPrimke"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>
