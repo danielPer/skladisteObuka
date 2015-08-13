@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="windows-1250" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="editPrimke">
+    <default-activity>router1</default-activity>
+    <transaction>
+      <requires-transaction/>
+    </transaction>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>isPrimke</name>
+      <value>#{pageFlowScope.idPrimke}</value>
+      <required/>
+    </input-parameter-definition>
+    <router id="router1">
+      <case id="__4">
+        <expression>#{pageFlowScope.idPrimke=='-1'}</expression>
+        <outcome>insert</outcome>
+      </case>
+    </router>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="primkeEdit">
+      <page>/pages/fragments/primke/primkeEdit.jsff</page>
+    </view>
+    <task-flow-return id="ok">
+      <outcome>
+        <name>ok</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="cancel">
+      <outcome>
+        <name>cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__2">
+      <from-activity-id>router1</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>insert</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>primkeEdit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>primkeEdit</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>ok</from-outcome>
+        <to-activity-id>ok</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

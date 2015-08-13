@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.8" id="DataBindings"
+             SeparateXMLFiles="false" Package="hr.iii.skladiste.view" ClientType="Generic">
+  <pageMap>
+    <page path="/WEB-INF/TaskFlows/Primke/editPrimke.xml#editPrimke@CreateInsert"
+          usageId="hr_iii_skladiste_view_editPrimke_editPrimke_CreateInsertPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="hr_iii_skladiste_view_editPrimke_editPrimke_CreateInsertPageDef"
+          path="TaskFlows.Primke.editPrimke_editPrimke_CreateInsertPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleAMDataControl" Package="hr.iii.skladiste.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -58,8 +58,8 @@
       <string v="oracle.bm.commonIde.data.project.ModelerProjectSettings/modelersContentSet"/>
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
    </list>
-   <value n="defaultPackage" v="hr.iii.skladiste.model"/>
-   <value n="jbo.JpxName" v="hr.iii.skladiste.model.Model"/>
+   <value n="defaultPackage" v="hr.iii.skladiste"/>
+   <value n="jbo.JpxName" v="hr.iii.skladiste.CommonLOVs"/>
    <value n="jbo.NoAttrEnumClasses" v="true"/>
    <value n="JboProject" v="true"/>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
@@ -108,7 +108,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="Skladiste_Model">
+         <hash n="Skladiste_CommonLOVs">
             <value n="adflib-connectionDetails" v="true"/>
             <value n="adflib-nonReusablesError" v="false"/>
             <hash n="archiveOptions">
@@ -143,60 +143,19 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/Skladiste_Model.jar"/>
+            <url n="jarURL" path="deploy/Skladiste_CommonLOVs.jar"/>
             <hash n="LibraryDependencies"/>
             <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="Skladiste_Model"/>
-         </hash>
-         <hash n="Skladiste_Model_adflib">
-            <value n="adflib-connectionDetails" v="true"/>
-            <value n="adflib-nonReusablesError" v="false"/>
-            <hash n="archiveOptions">
-               <value n="hasManifest" v="true"/>
-            </hash>
-            <hash n="fileGroups">
-               <list n="groups">
-                  <hash>
-                     <list n="contributors">
-                        <hash>
-                           <value n="type" v="2"/>
-                        </hash>
-                        <hash>
-                           <value n="type" v="5"/>
-                        </hash>
-                     </list>
-                     <value n="displayName" v="Project Output"/>
-                     <hash n="filters">
-                        <list n="rules">
-                           <hash>
-                              <value n="pattern" v="WEB-INF/classes/**"/>
-                              <value n="type" v="1"/>
-                           </hash>
-                           <hash>
-                              <value n="pattern" v="**"/>
-                              <value n="type" v="0"/>
-                           </hash>
-                        </list>
-                     </hash>
-                     <value n="internalName" v="project-output"/>
-                     <value n="type" v="1"/>
-                  </hash>
-               </list>
-            </hash>
-            <url n="jarURL" path="deploy/Skladiste_Model_adflib.jar"/>
-            <hash n="LibraryDependencies"/>
-            <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="Skladiste_Model_adflib"/>
+            <value n="profileName" v="Skladiste_CommonLOVs"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="Skladiste_Model_adflib"/>
-         <string v="Skladiste_Model"/>
+         <string v="Skladiste_CommonLOVs"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="Skladiste-Model-webapp"/>
-      <value n="j2eeWebContextRoot" v="Skladiste-Model-context-root"/>
+      <value n="j2eeWebAppName" v="Skladiste-CommonLOVs-webapp"/>
+      <value n="j2eeWebContextRoot" v="Skladiste-CommonLOVs-context-root"/>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
       <list n="exportedReferences">
@@ -228,6 +187,14 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Support"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Common Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <list n="libraryReferences">
          <hash>
@@ -256,6 +223,14 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Support"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Common Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

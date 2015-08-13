@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1250" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CommonLOVsAM"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="ArtikliLOV"
+    ViewObjectName="hr.iii.skladiste.VO.ArtikliLOV"/>
+  <ViewUsage
+    Name="OznakaPotvrdenoLOV"
+    ViewObjectName="hr.iii.skladiste.VO.OznakaPotvrdenoLOV"/>
+  <ViewUsage
+    Name="DobavljaciLOV"
+    ViewObjectName="hr.iii.skladiste.VO.DobavljaciLOV"/>
+  <ViewUsage
+    Name="MTLOV"
+    ViewObjectName="hr.iii.skladiste.VO.MTLOV"/>
+  <ViewUsage
+    Name="SkladistaLOV"
+    ViewObjectName="hr.iii.skladiste.VO.SkladistaLOV"/>
+</AppModule>
