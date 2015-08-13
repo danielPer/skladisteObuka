@@ -22,6 +22,7 @@
           usageId="hr_iii_skladiste_view_IzdatniceBrowsePageDef"/>
     <page path="/pages/fragments/izdatnice/editIzdatnice.jsf" usageId="hr_iii_skladiste_view_editIzdatnicePageDef"/>
     <page path="/pages/izdatnice.jsf" usageId="hr_iii_skladiste_view_izdatnicePageDef"/>
+    <page path="/pages/izdatnice.jsf" usageId="hr_iii_skladiste_view_izdatnicePageDef1"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="hr_iii_skladiste_view_editPrimke_editPrimke_CreateInsertPageDef"
@@ -38,6 +39,7 @@
     <page id="hr_iii_skladiste_view_IzdatniceBrowsePageDef" path="pages.fragments.izdatnice.IzdatniceBrowsePageDef"/>
     <page id="hr_iii_skladiste_view_editIzdatnicePageDef" path="pages.fragments.izdatnice.editIzdatnicePageDef"/>
     <page id="hr_iii_skladiste_view_izdatnicePageDef" path="pages.izdatnicePageDef"/>
+    <page id="hr_iii_skladiste_view_izdatnicePageDef1" path="hr.iii.skladiste.view.pageDefs.izdatnicePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleAMDataControl" Package="hr.iii.skladiste.model.am"

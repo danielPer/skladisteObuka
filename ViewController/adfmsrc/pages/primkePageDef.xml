@@ -5,6 +5,8 @@
     <variableIterator id="variables"/>
     <taskFlow id="primke1" taskFlowId="/WEB-INF/TaskFlows/Primke/primke.xml#primke" activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="primke2" taskFlowId="/WEB-INF/TaskFlows/Primke/primke.xml#primke" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings/>
 </pageDefinition>
