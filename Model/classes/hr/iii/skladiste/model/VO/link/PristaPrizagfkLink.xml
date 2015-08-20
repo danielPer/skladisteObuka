@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1250" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PristaPrizagfkLink"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  EntityAssociation="hr.iii.skladiste.model.Entity.Assoc.PristaPrizagfkAssoc">
+  <ViewLinkDefEnd
+    Name="TPrimkeZag"
+    Cardinality="1"
+    Source="true"
+    Owner="hr.iii.skladiste.model.VO.TPrimkeZagVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="TPrimkeZag"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="hr.iii.skladiste.model.VO.TPrimkeZagVO.Id"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="TPrimkeSta"
+    Cardinality="-1"
+    Owner="hr.iii.skladiste.model.VO.TPrimkeStaVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="TPrimkeSta"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="hr.iii.skladiste.model.VO.TPrimkeStaVO.IdPrimke"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

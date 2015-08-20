@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8"
+                id="izdatniceEdit_izdatniceEdit_SetCurrentRowWithKeyValuePageDef" Package="TaskFlows.izdatnice"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="TIzdatniceZag1" RangeSize="25" DataControl="AppModuleAMDataControl" id="TIzdatniceZag1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="TIzdatniceZag1Iterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.idIzdatnice}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

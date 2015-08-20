@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Izdatnice.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelSplitter id="ps1" splitterPosition="450" orientation="vertical">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1">
+                        <af:inputText value="#{bindings.Broj.inputValue}" label="#{bindings.Broj.hints.label}"
+                                      required="#{bindings.Broj.hints.mandatory}"
+                                      columns="#{bindings.Broj.hints.displayWidth}"
+                                      maximumLength="#{bindings.Broj.hints.precision}"
+                                      shortDesc="#{bindings.Broj.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.Broj.validator}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.Datum.inputValue}" label="#{bindings.Datum.hints.label}"
+                                      required="#{bindings.Datum.hints.mandatory}"
+                                      columns="#{bindings.Datum.hints.displayWidth}"
+                                      shortDesc="#{bindings.Datum.hints.tooltip}" id="id1">
+                            <f:validator binding="#{bindings.Datum.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.Datum.format}"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.Opis.inputValue}" label="#{bindings.Opis.hints.label}"
+                                      required="#{bindings.Opis.hints.mandatory}"
+                                      columns="#{bindings.Opis.hints.displayWidth}"
+                                      maximumLength="#{bindings.Opis.hints.precision}"
+                                      shortDesc="#{bindings.Opis.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.Opis.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.OpisDuzi.inputValue}" label="#{bindings.OpisDuzi.hints.label}"
+                                      required="#{bindings.OpisDuzi.hints.mandatory}"
+                                      columns="#{bindings.OpisDuzi.hints.displayWidth}"
+                                      maximumLength="#{bindings.OpisDuzi.hints.precision}"
+                                      shortDesc="#{bindings.OpisDuzi.hints.tooltip}" id="it3">
+                            <f:validator binding="#{bindings.OpisDuzi.validator}"/>
+                        </af:inputText>
+                        <af:selectOneChoice value="#{bindings.OznakaPotvrde.inputValue}"
+                                            label="#{bindings.OznakaPotvrde.label}"
+                                            required="#{bindings.OznakaPotvrde.hints.mandatory}"
+                                            shortDesc="#{bindings.OznakaPotvrde.hints.tooltip}" id="soc1">
+                            <f:selectItems value="#{bindings.OznakaPotvrde.items}" id="si1"/>
+                            <f:validator binding="#{bindings.OznakaPotvrde.validator}"/>
+                        </af:selectOneChoice>
+                        <af:inputText value="#{bindings.UserDodavanja.inputValue}"
+                                      label="#{bindings.UserDodavanja.hints.label}"
+                                      required="#{bindings.UserDodavanja.hints.mandatory}"
+                                      columns="#{bindings.UserDodavanja.hints.displayWidth}"
+                                      maximumLength="#{bindings.UserDodavanja.hints.precision}"
+                                      shortDesc="#{bindings.UserDodavanja.hints.tooltip}" id="it6">
+                            <f:validator binding="#{bindings.UserDodavanja.validator}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.DatumDodavanja.inputValue}"
+                                      label="#{bindings.DatumDodavanja.hints.label}"
+                                      required="#{bindings.DatumDodavanja.hints.mandatory}"
+                                      columns="#{bindings.DatumDodavanja.hints.displayWidth}"
+                                      shortDesc="#{bindings.DatumDodavanja.hints.tooltip}" id="id4">
+                            <f:validator binding="#{bindings.DatumDodavanja.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.DatumDodavanja.format}"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.UserIzmjene.inputValue}"
+                                      label="#{bindings.UserIzmjene.hints.label}"
+                                      required="#{bindings.UserIzmjene.hints.mandatory}"
+                                      columns="#{bindings.UserIzmjene.hints.displayWidth}"
+                                      maximumLength="#{bindings.UserIzmjene.hints.precision}"
+                                      shortDesc="#{bindings.UserIzmjene.hints.tooltip}" id="it7">
+                            <f:validator binding="#{bindings.UserIzmjene.validator}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.DatumIzmjene.inputValue}"
+                                      label="#{bindings.DatumIzmjene.hints.label}"
+                                      required="#{bindings.DatumIzmjene.hints.mandatory}"
+                                      columns="#{bindings.DatumIzmjene.hints.displayWidth}"
+                                      shortDesc="#{bindings.DatumIzmjene.hints.tooltip}" id="id5">
+                            <f:validator binding="#{bindings.DatumIzmjene.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.DatumIzmjene.format}"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.MTNaziv.inputValue}" label="#{bindings.MTNaziv.hints.label}"
+                                      required="#{bindings.MTNaziv.hints.mandatory}"
+                                      columns="#{bindings.MTNaziv.hints.displayWidth}"
+                                      maximumLength="#{bindings.MTNaziv.hints.precision}"
+                                      shortDesc="#{bindings.MTNaziv.hints.tooltip}" id="it8">
+                            <f:validator binding="#{bindings.MTNaziv.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.MTNazivDuzi.inputValue}"
+                                      label="#{bindings.MTNazivDuzi.hints.label}"
+                                      required="#{bindings.MTNazivDuzi.hints.mandatory}"
+                                      columns="#{bindings.MTNazivDuzi.hints.displayWidth}"
+                                      maximumLength="#{bindings.MTNazivDuzi.hints.precision}"
+                                      shortDesc="#{bindings.MTNazivDuzi.hints.tooltip}" id="it9">
+                            <f:validator binding="#{bindings.MTNazivDuzi.validator}"/>
+                        </af:inputText>
+                        <af:inputListOfValues id="mTSifraId"
+                                              popupTitle="Search and Select: #{bindings.MTSifra.hints.label}"
+                                              value="#{bindings.MTSifra.inputValue}"
+                                              label="#{bindings.MTSifra.hints.label}"
+                                              model="#{bindings.MTSifra.listOfValuesModel}"
+                                              required="#{bindings.MTSifra.hints.mandatory}"
+                                              columns="#{bindings.MTSifra.hints.displayWidth}"
+                                              shortDesc="#{bindings.MTSifra.hints.tooltip}" autoSubmit="true">
+                            <f:validator binding="#{bindings.MTSifra.validator}"/>
+                        </af:inputListOfValues>
+                        <af:inputText value="#{bindings.SkladisteNaziv.inputValue}"
+                                      label="#{bindings.SkladisteNaziv.hints.label}"
+                                      required="#{bindings.SkladisteNaziv.hints.mandatory}"
+                                      columns="#{bindings.SkladisteNaziv.hints.displayWidth}"
+                                      maximumLength="#{bindings.SkladisteNaziv.hints.precision}"
+                                      shortDesc="#{bindings.SkladisteNaziv.hints.tooltip}" id="it10">
+                            <f:validator binding="#{bindings.SkladisteNaziv.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.SkladisteNazivDuzi.inputValue}"
+                                      label="#{bindings.SkladisteNazivDuzi.hints.label}"
+                                      required="#{bindings.SkladisteNazivDuzi.hints.mandatory}"
+                                      columns="#{bindings.SkladisteNazivDuzi.hints.displayWidth}"
+                                      maximumLength="#{bindings.SkladisteNazivDuzi.hints.precision}"
+                                      shortDesc="#{bindings.SkladisteNazivDuzi.hints.tooltip}" id="it11">
+                            <f:validator binding="#{bindings.SkladisteNazivDuzi.validator}"/>
+                        </af:inputText>
+                        <af:inputListOfValues id="skladisteSifraId"
+                                              popupTitle="Search and Select: #{bindings.SkladisteSifra.hints.label}"
+                                              value="#{bindings.SkladisteSifra.inputValue}"
+                                              label="#{bindings.SkladisteSifra.hints.label}"
+                                              model="#{bindings.SkladisteSifra.listOfValuesModel}"
+                                              required="#{bindings.SkladisteSifra.hints.mandatory}"
+                                              columns="#{bindings.SkladisteSifra.hints.displayWidth}"
+                                              shortDesc="#{bindings.SkladisteSifra.hints.tooltip}" autoSubmit="true">
+                            <f:validator binding="#{bindings.SkladisteSifra.validator}"/>
+                        </af:inputListOfValues>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second"/>
+            </af:panelSplitter>
+        </af:form>
+    </af:document>
+</f:view>

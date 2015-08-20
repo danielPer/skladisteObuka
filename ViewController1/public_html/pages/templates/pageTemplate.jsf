@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<af:pageTemplateDef xmlns:af="http://xmlns.oracle.com/adf/faces/rich" var="attrs" definition="private"
+                    xmlns:afc="http://xmlns.oracle.com/adf/faces/rich/component" xmlns:f="http://java.sun.com/jsf/core">
+    <af:xmlContent>
+        <afc:component>
+            <afc:description/>
+            <afc:display-name>pageTemplate</afc:display-name>
+            <afc:facet>
+                <afc:facet-name>centar</afc:facet-name>
+            </afc:facet>
+            <afc:attribute>
+                <afc:attribute-name>Naslov</afc:attribute-name>
+                <afc:attribute-class>java.lang.String</afc:attribute-class>
+            </afc:attribute>
+        </afc:component>
+    </af:xmlContent>
+    <af:panelGridLayout id="pt_pgl1" inlineStyle="margin-left:20%; margin-right:20%;">
+        <af:gridRow height="50px" id="pt_gr2">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="pt_gc1">
+                <af:panelGroupLayout id="pt_pgl2">
+                    <af:outputText value="#{attrs.Naslov}" id="pt_ot1" inlineStyle="font-size:200%;"/>
+                    <af:navigationPane hint="bar" id="pt_np1" var="menuInfo" value="#{root_menu}">
+                        <f:facet name="nodeStamp">
+                            <af:commandNavigationItem text="#{menuInfo.label}" id="pt_cni1"
+                                                      destination="#{menuInfo.destination}"
+                                                      action="#{menuInfo.doAction}"/>
+                        </f:facet>
+                    </af:navigationPane>
+                </af:panelGroupLayout>
+                <!-- Header -->
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow height="100%" id="pt_gr1">
+            <af:gridCell width="80%" halign="stretch" valign="stretch" id="pt_gc2">
+                <!-- Content -->
+                <af:facetRef facetName="centar"/>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</af:pageTemplateDef>

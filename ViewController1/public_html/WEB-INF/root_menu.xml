@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="windows-1250" ?>
+<menu xmlns="http://myfaces.apache.org/trinidad/menu">
+  <itemNode id="itemNode_primke" label="Primke" action="primke" focusViewId="/primke"/>
+  <itemNode id="itemNode_izdatnice" label="Izdatnice" action="izdatnice" focusViewId="/izdatnice"/>
+</menu>

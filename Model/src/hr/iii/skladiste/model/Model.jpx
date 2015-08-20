@@ -30,8 +30,24 @@
     </DesignTime>
   </Containee>
   <Containee
+    Name="References"
+    PackageName="hr.iii.skladiste.model.Entity.Assoc.References"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_AS" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
     Name="Entity"
     PackageName="hr.iii.skladiste.model.Entity"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_EO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="References"
+    PackageName="hr.iii.skladiste.model.Entity.References"
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_EO" Value="true"/>
@@ -54,16 +70,16 @@
     </DesignTime>
   </Containee>
   <AppContainee
-    Name="CommonLOVs"
-    FullName="hr.iii.skladiste.CommonLOVs"
+    Name="SharedLOVs"
+    FullName="hr.iii.skladiste.SharedLOVs"
     ObjectType="JboProject">
     <DesignTime>
-      <Attr Name="_SourceName" Value="commonLOVlib.jar"/>
+      <Attr Name="_SourceName" Value="SharedLovsLib.jar"/>
     </DesignTime>
   </AppContainee>
   <AppModuleUsage
-    Name="CommonLOVsAM"
-    FullName="hr.iii.skladiste.am.CommonLOVsAM"
-    ConfigurationName="hr.iii.skladiste.am.CommonLOVsAMShared"
+    Name="SharedLovsAM"
+    FullName="hr.iii.skladiste.Am.SharedLovsAM"
+    ConfigurationName="hr.iii.skladiste.Am.SharedLovsAMShared"
     SharedScope="2"/>
 </JboProject>

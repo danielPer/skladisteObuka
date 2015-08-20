@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="hr.iii.skladiste.model.am.AppModuleAM">
-      <AppModuleConfig name="AppModuleAMLocal" jbo.project="hr.iii.skladiste.model.Model" ApplicationName="hr.iii.skladiste.model.am.AppModuleAM" DeployPlatform="LOCAL">
+      <AppModuleConfig DeployPlatform="LOCAL" name="AppModuleAMLocal" ApplicationName="hr.iii.skladiste.model.am.AppModuleAM" jbo.project="hr.iii.skladiste.model.Model">
          <Database jbo.TypeMapEntries="OracleApps"/>
          <Security AppModuleJndiName="hr.iii.skladiste.model.am.AppModuleAM"/>
-         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/Connection1DS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/Connection1DS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
       </AppModuleConfig>
-      <AppModuleConfig name="AppModuleAMShared" jbo.project="hr.iii.skladiste.model.Model" ApplicationName="hr.iii.skladiste.model.am.AppModuleAM" DeployPlatform="LOCAL">
-         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <AppModuleConfig DeployPlatform="LOCAL" name="AppModuleAMShared" ApplicationName="hr.iii.skladiste.model.am.AppModuleAM" jbo.project="hr.iii.skladiste.model.Model">
+         <AM-Pooling jbo.ampool.isuseexclusive="false"/>
          <Database jbo.TypeMapEntries="OracleApps"/>
          <Security AppModuleJndiName="hr.iii.skladiste.model.am.AppModuleAM"/>
-         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/Connection1DS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/Connection1DS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
       </AppModuleConfig>
    </AppModuleConfigBag>
 </BC4JConfig>

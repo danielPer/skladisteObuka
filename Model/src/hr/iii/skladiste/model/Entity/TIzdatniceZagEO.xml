@@ -9,22 +9,30 @@
   DBObjectType="table"
   DBObjectName="T_IZDATNICE_ZAG"
   AliasName="TIzdatniceZagEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="Id"
-    IsNotNull="true"
     Precision="20"
     Scale="0"
     ColumnName="ID"
     SQLType="NUMERIC"
-    Type="java.lang.Integer"
+    Type="oracle.jbo.domain.DBSequence"
     ColumnType="NUMBER"
     TableName="T_IZDATNICE_ZAG"
     PrimaryKey="true"
-    IsUpdateable="while_insert">
-    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("SEKVENCA_ZA_ID",object.getDBTransaction())).getSequenceNumber()]]></TransientExpression>
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true">
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="IdSkladista"
@@ -40,8 +48,26 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.IdSkladista_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:ExistsValidationBean
+      Name="IdSkladistaRule0"
+      ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.IdSkladista_Rule_0"
+      OperandType="VO"
+      Target="hr.iii.skladiste.View.MSkladistaVO">
+      <validation:ResExpressions
+        Name="IdSkladistaRule0_ResExprList">
+        <validation:Expression
+          trustMode="untrusted"
+          Name="0"><![CDATA[adf.object.hints.IdSkladista.label]]></validation:Expression>
+      </validation:ResExpressions>
+      <validation:TargetAttributes>
+        <validation:Item
+          Value="Id"/>
+      </validation:TargetAttributes>
+    </validation:ExistsValidationBean>
   </Attribute>
   <Attribute
     Name="IdMt"
@@ -57,8 +83,26 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.IdMt_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:ExistsValidationBean
+      Name="IdMtRule0"
+      ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.IdMt_Rule_0"
+      OperandType="VO"
+      Target="hr.iii.skladiste.View.MMtVO">
+      <validation:ResExpressions
+        Name="IdMtRule0_ResExprList">
+        <validation:Expression
+          trustMode="untrusted"
+          Name="0"><![CDATA[adf.object.hints.IdMt.label]]></validation:Expression>
+      </validation:ResExpressions>
+      <validation:TargetAttributes>
+        <validation:Item
+          Value="Id"/>
+      </validation:TargetAttributes>
+    </validation:ExistsValidationBean>
   </Attribute>
   <Attribute
     Name="Broj"
@@ -77,8 +121,23 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.Broj_LABEL"/>
+        <DISPLAYWIDTH
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:RegExpValidationBean
+      Name="BrojRulePattern"
+      ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.Broj_Rule_0"
+      OnAttribute="Broj"
+      Pattern="^([1][9]\d{2}|[2][0][0-9]{2})-[0-9]{1,3}"
+      Inverse="false">
+      <validation:ResExpressions
+        Name="BrojRulePattern_ResExprList">
+        <validation:Expression
+          trustMode="untrusted"
+          Name="0"><![CDATA[adf.object.hints.Broj.label]]></validation:Expression>
+      </validation:ResExpressions>
+    </validation:RegExpValidationBean>
   </Attribute>
   <Attribute
     Name="Datum"
@@ -97,6 +156,23 @@
           ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.Datum_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:CompareValidationBean
+      Name="DatumRule0"
+      ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.Datum_Rule_0"
+      Severity="Warning"
+      OnAttribute="Datum"
+      OperandType="EXPR"
+      Inverse="false"
+      CompareType="LESSTHANEQUALTO">
+      <validation:ResExpressions
+        Name="DatumRule0_ResExprList">
+        <validation:Expression
+          trustMode="untrusted"
+          Name="0"><![CDATA[adf.object.hints.Datum.label]]></validation:Expression>
+      </validation:ResExpressions>
+      <validation:TransientExpression
+        trustMode="untrusted"><![CDATA[adf.currentDate]]></validation:TransientExpression>
+    </validation:CompareValidationBean>
   </Attribute>
   <Attribute
     Name="Opis"
@@ -154,6 +230,26 @@
           ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.OznakaPotvrde_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:ListValidationBean
+      Name="OznakaPotvrdeRuleCK"
+      ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.OznakaPotvrde_Rule_0"
+      OnAttribute="OznakaPotvrde"
+      OperandType="LITERAL"
+      Inverse="false">
+      <validation:ResExpressions
+        Name="OznakaPotvrdeRuleCK_ResExprList">
+        <validation:Expression
+          trustMode="untrusted"
+          Name="0"><![CDATA[adf.object.hints.OznakaPotvrde.label]]></validation:Expression>
+      </validation:ResExpressions>
+      <validation:AttrArray
+        Name="List">
+        <validation:Item
+          Value="D"/>
+        <validation:Item
+          Value="N"/>
+      </validation:AttrArray>
+    </validation:ListValidationBean>
   </Attribute>
   <Attribute
     Name="UserDodavanja"
@@ -175,7 +271,16 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="T_IZDATNICE_ZAG"
-    RetrievedOnInsert="true"/>
+    RetrievedOnInsert="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.DatumDodavanja_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.DatumDodavanja_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="UserIzmjene"
     Precision="30"
@@ -198,12 +303,35 @@
     ColumnType="DATE"
     TableName="T_IZDATNICE_ZAG"
     RetrievedOnInsert="true"
-    RetrievedOnUpdate="true"/>
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.DatumIzmjene_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.DatumIzmjene_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="TIzdatniceSta"
     Association="hr.iii.skladiste.model.Entity.Assoc.IzdstaIzdzagfkAssoc"
     AssociationEnd="hr.iii.skladiste.model.Entity.Assoc.IzdstaIzdzagfkAssoc.TIzdatniceSta"
     AssociationOtherEnd="hr.iii.skladiste.model.Entity.Assoc.IzdstaIzdzagfkAssoc.TIzdatniceZag"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="MSkladista"
+    Association="hr.iii.skladiste.model.Entity.Assoc.References.IzdZagSklaFKAssoc"
+    AssociationEnd="hr.iii.skladiste.model.Entity.Assoc.References.IzdZagSklaFKAssoc.MSkladista"
+    AssociationOtherEnd="hr.iii.skladiste.model.Entity.Assoc.References.IzdZagSklaFKAssoc.TIzdatniceZag"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="MMt"
+    Association="hr.iii.skladiste.model.Entity.Assoc.References.IzdZagMTFKAssoc"
+    AssociationEnd="hr.iii.skladiste.model.Entity.Assoc.References.IzdZagMTFKAssoc.MMt"
+    AssociationOtherEnd="hr.iii.skladiste.model.Entity.Assoc.References.IzdZagMTFKAssoc.TIzdatniceZag"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
@@ -243,6 +371,17 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.Opis"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="uk_TIzdatniceZagEO">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="UK_TIZDATNICE_ZAG_EO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="hr.iii.skladiste.model.Entity.TIzdatniceZagEO.IdMt"/>
     </AttrArray>
   </Key>
   <Key

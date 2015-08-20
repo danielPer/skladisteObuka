@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1250" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SharedLovsAM"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="hr.iii.skladiste.Am.SharedLovsAMImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="MArtikli1"
+    ViewObjectName="hr.iii.skladiste.View.MArtikliVO"/>
+  <ViewUsage
+    Name="MDobavljaci1"
+    ViewObjectName="hr.iii.skladiste.View.MDobavljaciVO"/>
+  <ViewUsage
+    Name="MMt1"
+    ViewObjectName="hr.iii.skladiste.View.MMtVO"/>
+  <ViewUsage
+    Name="MSkladista1"
+    ViewObjectName="hr.iii.skladiste.View.MSkladistaVO"/>
+  <ViewUsage
+    Name="Potvrdeno1"
+    ViewObjectName="hr.iii.skladiste.View.PotvrdenoVO"/>
+</AppModule>

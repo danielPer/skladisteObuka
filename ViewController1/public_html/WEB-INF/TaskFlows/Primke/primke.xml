@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="windows-1250" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="primke">
+    <default-activity>browsePrimke</default-activity>
+    <view id="primkeBrowse">
+      <page>/pages/fragments/primke/primkeBrowse.jsff</page>
+    </view>
+    <task-flow-call id="editPrimke">
+      <task-flow-reference>
+        <document>/WEB-INF/TaskFlows/Primke/editPrimke.xml</document>
+        <id>editPrimke</id>
+      </task-flow-reference>
+      <input-parameter id="__1">
+        <name>isPrimke</name>
+        <value>#{pageFlowScope.idPrimke}</value>
+      </input-parameter>
+    </task-flow-call>
+    <view id="browsePrimke">
+      <page>/pages/fragments/primke/browsePrimke.jsff</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id>browsePrimke</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>edipPrimke</from-outcome>
+        <to-activity-id>editPrimke</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -29,7 +29,8 @@
   <AssociationEnd
     Name="TPrimkeSta"
     Cardinality="-1"
-    Owner="hr.iii.skladiste.model.Entity.TPrimkeStaEO">
+    Owner="hr.iii.skladiste.model.Entity.TPrimkeStaEO"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="TPrimkeSta"/>

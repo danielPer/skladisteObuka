@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="hr.iii.skladiste.Am.SharedLovsAM" default="SharedLovsAMLocal">
+      <AppModuleConfig DeployPlatform="LOCAL" name="SharedLovsAMLocal" ApplicationName="hr.iii.skladiste.Am.SharedLovsAM" jbo.project="hr.iii.skladiste.SharedLOVs">
+         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="hr.iii.skladiste.Am.SharedLovsAM"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/Connection1DS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.shared.txn="SharedAMOptimization" name="SharedLovsAMShared" ApplicationName="hr.iii.skladiste.Am.SharedLovsAM" jbo.project="hr.iii.skladiste.SharedLOVs">
+         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.resetnontransactionalstate="false" jbo.ampool.dynamicjdbccredentials="false"/>
+         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="hr.iii.skladiste.Am.SharedLovsAM"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/Connection1DS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

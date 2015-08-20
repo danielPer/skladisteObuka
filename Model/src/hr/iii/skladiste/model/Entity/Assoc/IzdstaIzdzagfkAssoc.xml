@@ -13,7 +13,8 @@
     Name="TIzdatniceZag"
     Cardinality="1"
     Source="true"
-    Owner="hr.iii.skladiste.model.Entity.TIzdatniceZagEO">
+    Owner="hr.iii.skladiste.model.Entity.TIzdatniceZagEO"
+    LockLevel="NONE">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="TIzdatniceZag"/>
@@ -28,7 +29,8 @@
   <AssociationEnd
     Name="TIzdatniceSta"
     Cardinality="-1"
-    Owner="hr.iii.skladiste.model.Entity.TIzdatniceStaEO">
+    Owner="hr.iii.skladiste.model.Entity.TIzdatniceStaEO"
+    HasOwner="true">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="TIzdatniceSta"/>

@@ -14,56 +14,74 @@
   SelectAllAttributes="false"
   PageIterMode="Full">
   <ViewAccessor
-    Name="DobavljaciLOV1"
-    ViewObjectName="hr.iii.skladiste.VO.DobavljaciLOV"
+    Name="MSkladistaVO1"
+    ViewObjectName="hr.iii.skladiste.View.MSkladistaVO"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="SkladistaLOV1"
-    ViewObjectName="hr.iii.skladiste.VO.SkladistaLOV"
+    Name="MDobavljaciVO1"
+    ViewObjectName="hr.iii.skladiste.View.MDobavljaciVO"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="OznakaPotvrdenoLOV1"
-    ViewObjectName="hr.iii.skladiste.VO.OznakaPotvrdenoLOV"
+    Name="PotvrdenoVO1"
+    ViewObjectName="hr.iii.skladiste.View.PotvrdenoVO"
     RowLevelBinds="true"/>
   <ListBinding
-    Name="LOV_IdDobavljaca"
-    ListVOName="DobavljaciLOV1"
+    Name="LOV_SkladisteSifra"
+    ListVOName="MSkladistaVO1"
     ListRangeSize="-1"
+    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="IdDobavljaca"/>
+      <Item Value="SkladisteSifra"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Id"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="IdSkladista"/>
+      <Item Value="SkladisteExpr"/>
     </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Sifra"/>
+      <Item Value="Id"/>
       <Item Value="NazivExpr"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Sifra"/>
+      <Item Value="NazivExpr"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="MSkladistaVOCriteria"/>
   </ListBinding>
   <ListBinding
-    Name="LOV_IdSkladista"
-    ListVOName="SkladistaLOV1"
+    Name="LOV_DobavljacSifra"
+    ListVOName="MDobavljaciVO1"
     ListRangeSize="-1"
+    ComboRowCountHint="10"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
-      <Item Value="IdSkladista"/>
+      <Item Value="DobavljacSifra"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Id"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="IdDobavljaca"/>
+      <Item Value="DobavljacExpr"/>
     </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Sifra"/>
+      <Item Value="Id"/>
       <Item Value="NazivExpr"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Sifra"/>
+      <Item Value="NazivExpr"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="MDobavljaciVOCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_OznakaPotvrde"
-    ListVOName="OznakaPotvrdenoLOV1"
+    ListVOName="PotvrdenoVO1"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
@@ -75,13 +93,51 @@
       <Item Value="Oznaka"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Label"/>
+      <Item Value="Labela"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="TPrimkeZagEO"
     Entity="hr.iii.skladiste.model.Entity.TPrimkeZagEO"/>
+  <EntityUsage
+    Name="MDobavljaciEO"
+    Entity="hr.iii.skladiste.model.Entity.References.MDobavljaciEO"
+    Association="hr.iii.skladiste.model.Entity.Assoc.References.PriZagDobFKAssoc"
+    AssociationEnd="hr.iii.skladiste.model.Entity.Assoc.References.PriZagDobFKAssoc.MDobavljaci"
+    SourceUsage="hr.iii.skladiste.model.VO.TPrimkeZagVO.TPrimkeZagEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="hr.iii.skladiste.model.Entity.TPrimkeZagEO.IdDobavljaca"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="hr.iii.skladiste.model.Entity.References.MDobavljaciEO.Id"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="MSkladistaEO"
+    Entity="hr.iii.skladiste.model.Entity.References.MSkladistaEO"
+    Association="hr.iii.skladiste.model.Entity.Assoc.References.PriZagSklaFKAssoc"
+    AssociationEnd="hr.iii.skladiste.model.Entity.Assoc.References.PriZagSklaFKAssoc.MSkladista"
+    SourceUsage="hr.iii.skladiste.model.VO.TPrimkeZagVO.TPrimkeZagEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="hr.iii.skladiste.model.Entity.TPrimkeZagEO.IdSkladista"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="hr.iii.skladiste.model.Entity.References.MSkladistaEO.Id"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
   <ViewAttribute
     Name="Id"
     IsNotNull="true"
@@ -96,30 +152,14 @@
     PrecisionRule="true"
     EntityAttrName="IdDobavljaca"
     EntityUsage="TPrimkeZagEO"
-    AliasName="ID_DOBAVLJACA"
-    LOVName="LOV_IdDobavljaca">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="ID_DOBAVLJACA"/>
   <ViewAttribute
     Name="IdSkladista"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="IdSkladista"
     EntityUsage="TPrimkeZagEO"
-    AliasName="ID_SKLADISTA"
-    LOVName="LOV_IdSkladista">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="ID_SKLADISTA"/>
   <ViewAttribute
     Name="Broj"
     IsUnique="true"
@@ -134,14 +174,28 @@
     PrecisionRule="true"
     EntityAttrName="DatumIsporuke"
     EntityUsage="TPrimkeZagEO"
-    AliasName="DATUM_ISPORUKE"/>
+    AliasName="DATUM_ISPORUKE">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DatumZaprimanja"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="DatumZaprimanja"
     EntityUsage="TPrimkeZagEO"
-    AliasName="DATUM_ZAPRIMANJA"/>
+    AliasName="DATUM_ZAPRIMANJA">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Opis"
     IsUnique="true"
@@ -173,35 +227,225 @@
   </ViewAttribute>
   <ViewAttribute
     Name="UserDodavanja"
-    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="UserDodavanja"
     EntityUsage="TPrimkeZagEO"
     AliasName="USER_DODAVANJA"/>
   <ViewAttribute
     Name="DatumDodavanja"
-    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="DatumDodavanja"
     EntityUsage="TPrimkeZagEO"
     AliasName="DATUM_DODAVANJA"/>
   <ViewAttribute
     Name="UserIzmjene"
-    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="UserIzmjene"
     EntityUsage="TPrimkeZagEO"
     AliasName="USER_IZMJENE"/>
   <ViewAttribute
     Name="DatumIzmjene"
-    IsNotNull="false"
     PrecisionRule="true"
     EntityAttrName="DatumIzmjene"
     EntityUsage="TPrimkeZagEO"
     AliasName="DATUM_IZMJENE"/>
+  <ViewAttribute
+    Name="Adresa"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Adresa"
+    EntityUsage="MDobavljaciEO"
+    AliasName="ADRESA"/>
+  <ViewAttribute
+    Name="Naziv"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Naziv"
+    EntityUsage="MDobavljaciEO"
+    AliasName="NAZIV"/>
+  <ViewAttribute
+    Name="NazivDuzi"
+    PrecisionRule="true"
+    EntityAttrName="NazivDuzi"
+    EntityUsage="MDobavljaciEO"
+    AliasName="NAZIV_DUZI"/>
+  <ViewAttribute
+    Name="DobavljacSifra"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DobavljacSifra"
+    EntityUsage="MDobavljaciEO"
+    AliasName="SIFRA"
+    LOVName="LOV_DobavljacSifra">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Id1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="MDobavljaciEO"
+    AliasName="ID1"/>
+  <ViewAttribute
+    Name="SkladisteNaziv"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkladisteNaziv"
+    EntityUsage="MSkladistaEO"
+    AliasName="NAZIV"/>
+  <ViewAttribute
+    Name="SkladisteNazivDuzi"
+    PrecisionRule="true"
+    EntityAttrName="SkladisteNazivDuzi"
+    EntityUsage="MSkladistaEO"
+    AliasName="NAZIV_DUZI"/>
+  <ViewAttribute
+    Name="SkladisteSifra"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SkladisteSifra"
+    EntityUsage="MSkladistaEO"
+    AliasName="SIFRA"
+    LOVName="LOV_SkladisteSifra">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Id2"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="MSkladistaEO"
+    AliasName="ID2"/>
+  <ViewAttribute
+    Name="DobavljacExpr"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[NazivDuzi == null ? Naziv : NazivDuzi]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Dependencies>
+      <Item
+        Value="DobavljacSifra"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SkladisteExpr"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[SkladisteNazivDuzi == null ? SkladisteNaziv : SkladisteNazivDuzi]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Dependencies>
+      <Item
+        Value="SkladisteSifra"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Suma"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[TPrimkeSta.sum("Kolicina * NabavnaCijena")]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="hr.iii.skladiste.model.VO.TPrimkeZagVO.Suma_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="hr.iii.skladiste.model.VO.TPrimkeZagVO.Suma_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AuditDodano"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[UserDodavanja == null ? '' : UserDodavanja + '/' + DatumDodavanja]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.VO.TPrimkeZagVO.AuditDodano_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AuditIzmjena"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression
+      trustMode="untrusted"><![CDATA[UserIzmjene == null ? '' : UserIzmjene + '/' + DatumIzmjene]]></TransientExpression>
+    <RecalcCondition
+      trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="hr.iii.skladiste.model.VO.TPrimkeZagVO.AuditIzmjena_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Id"/>
+  </AttrArray>
   <ViewLinkAccessor
     Name="TPrimkeSta"
     ViewLink="hr.iii.skladiste.model.VO.link.PristaPrizagfkLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="hr.iii.skladiste.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

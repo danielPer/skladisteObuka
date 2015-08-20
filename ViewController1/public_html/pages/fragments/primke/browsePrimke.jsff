@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelSplitter id="ps1" splitterPosition="450" orientation="vertical">
+    <f:facet name="first">
+      <af:panelFormLayout id="pfl1">
+        <af:panelLabelAndMessage label="#{bindings.DobavljacSifra.hints.label}" id="plam1">
+          <af:panelGroupLayout id="pgl2" layout="vertical">
+            <af:outputText value="#{bindings.DobavljacSifra.inputValue} #{bindings.DobavljacExpr.inputValue}"
+                           shortDesc="#{bindings.DobavljacExpr.hints.tooltip}"
+                           id="it1"/>
+            <af:outputText value="#{bindings.Adresa.inputValue}" shortDesc="#{bindings.Adresa.hints.tooltip}" id="it2"/>
+          </af:panelGroupLayout>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.SkladisteSifra.hints.label}" id="plam2">
+          <af:outputText value="#{bindings.SkladisteSifra.inputValue} #{bindings.SkladisteExpr.inputValue}"
+                         shortDesc="#{bindings.SkladisteExpr.hints.tooltip}"
+                         id="it3"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Broj.hints.label}" id="plam3">
+          <af:inputText value="#{bindings.Broj.inputValue}" label="#{bindings.Broj.hints.label}"
+                        required="#{bindings.Broj.hints.mandatory}" readOnly="true"
+                        columns="#{bindings.Broj.hints.displayWidth}" maximumLength="#{bindings.Broj.hints.precision}"
+                        shortDesc="#{bindings.Broj.hints.tooltip}" id="it4" simple="true">
+            <f:validator binding="#{bindings.Broj.validator}"/>
+          </af:inputText>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.DatumIsporuke.hints.label}" id="plam4">
+          <af:inputDate value="#{bindings.DatumIsporuke.inputValue}" readOnly="true"
+                        label="#{bindings.DatumIsporuke.hints.label}"
+                        required="#{bindings.DatumIsporuke.hints.mandatory}"
+                        columns="#{bindings.DatumIsporuke.hints.displayWidth}"
+                        shortDesc="#{bindings.DatumIsporuke.hints.tooltip}" id="id1" simple="true">
+            <f:validator binding="#{bindings.DatumIsporuke.validator}"/>
+            <af:convertDateTime pattern="#{bindings.DatumIsporuke.format}"/>
+          </af:inputDate>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.DatumZaprimanja.hints.label}" id="plam5">
+          <af:inputDate value="#{bindings.DatumZaprimanja.inputValue}" readOnly="true"
+                        label="#{bindings.DatumZaprimanja.hints.label}"
+                        required="#{bindings.DatumZaprimanja.hints.mandatory}"
+                        columns="#{bindings.DatumZaprimanja.hints.displayWidth}"
+                        shortDesc="#{bindings.DatumZaprimanja.hints.tooltip}" id="id2" simple="true">
+            <f:validator binding="#{bindings.DatumZaprimanja.validator}"/>
+            <af:convertDateTime pattern="#{bindings.DatumZaprimanja.format}"/>
+          </af:inputDate>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Opis.hints.label}" id="plam6">
+          <af:inputText value="#{bindings.Opis.inputValue}" label="#{bindings.Opis.hints.label}"
+                        required="#{bindings.Opis.hints.mandatory}" readOnly="true"
+                        columns="#{bindings.Opis.hints.displayWidth}" maximumLength="#{bindings.Opis.hints.precision}"
+                        shortDesc="#{bindings.Opis.hints.tooltip}" id="it5" simple="true">
+            <f:validator binding="#{bindings.Opis.validator}"/>
+          </af:inputText>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.OpisDuzi.hints.label}" id="plam7">
+          <af:inputText value="#{bindings.OpisDuzi.inputValue}" label="#{bindings.OpisDuzi.hints.label}"
+                        required="#{bindings.OpisDuzi.hints.mandatory}" readOnly="true"
+                        columns="#{bindings.OpisDuzi.hints.displayWidth}"
+                        maximumLength="#{bindings.OpisDuzi.hints.precision}"
+                        shortDesc="#{bindings.OpisDuzi.hints.tooltip}" id="it6" simple="true">
+            <f:validator binding="#{bindings.OpisDuzi.validator}"/>
+          </af:inputText>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.OznakaPotvrde.label}" id="plam8">
+          <af:selectOneChoice value="#{bindings.OznakaPotvrde.inputValue}" label="#{bindings.OznakaPotvrde.label}"
+                              required="#{bindings.OznakaPotvrde.hints.mandatory}"
+                              shortDesc="#{bindings.OznakaPotvrde.hints.tooltip}" readOnly="true" id="soc1" simple="true">
+            <f:selectItems value="#{bindings.OznakaPotvrde.items}" id="si1"/>
+            <f:validator binding="#{bindings.OznakaPotvrde.validator}"/>
+          </af:selectOneChoice>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Suma.hints.label}" id="plam9">
+          <af:inputText value="#{bindings.Suma.inputValue}" label="#{bindings.Suma.hints.label}"
+                        required="#{bindings.Suma.hints.mandatory}" readOnly="true"
+                        columns="#{bindings.Suma.hints.displayWidth}" maximumLength="#{bindings.Suma.hints.precision}"
+                        shortDesc="#{bindings.Suma.hints.tooltip}" id="it7" simple="true">
+            <f:validator binding="#{bindings.Suma.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.Suma.format}"/>
+          </af:inputText>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.AuditDodano.hints.label}" id="plam10">
+          <af:inputText value="#{bindings.AuditDodano.inputValue}" label="#{bindings.AuditDodano.hints.label}"
+                        required="#{bindings.AuditDodano.hints.mandatory}" readOnly="true"
+                        columns="#{bindings.AuditDodano.hints.displayWidth}"
+                        maximumLength="#{bindings.AuditDodano.hints.precision}"
+                        shortDesc="#{bindings.AuditDodano.hints.tooltip}" id="it8" simple="true">
+            <f:validator binding="#{bindings.AuditDodano.validator}"/>
+          </af:inputText>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.AuditIzmjena.hints.label}" id="plam11">
+          <af:inputText value="#{bindings.AuditIzmjena.inputValue}" label="#{bindings.AuditIzmjena.hints.label}"
+                        required="#{bindings.AuditIzmjena.hints.mandatory}" readOnly="true"
+                        columns="#{bindings.AuditIzmjena.hints.displayWidth}"
+                        maximumLength="#{bindings.AuditIzmjena.hints.precision}"
+                        shortDesc="#{bindings.AuditIzmjena.hints.tooltip}" id="it9" simple="true">
+            <f:validator binding="#{bindings.AuditIzmjena.validator}"/>
+          </af:inputText>
+        </af:panelLabelAndMessage>
+        <f:facet name="footer">
+          <af:panelGroupLayout layout="horizontal" id="pgl1">
+            <af:button actionListener="#{bindings.First.execute}" text="First" disabled="#{!bindings.First.enabled}"
+                       partialSubmit="true" id="b1"/>
+            <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+            <af:button actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}"
+                       partialSubmit="true" id="b3"/>
+            <af:button actionListener="#{bindings.Last.execute}" text="Last" disabled="#{!bindings.Last.enabled}"
+                       partialSubmit="true" id="b4"/>
+            <af:button text="Nova primka" id="b5" action="edipPrimke">
+              <af:setPropertyListener from="-1" to="#{pageFlowScope.idPrimke}" type="action"/>
+            </af:button>
+            <af:button text="Izmjena primke" id="b6" action="edipPrimke">
+              <af:setPropertyListener from="#{bindings.Id.inputValue}" to="#{pageFlowScope.idPrimke}" type="action"/>
+            </af:button>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelFormLayout>
+    </f:facet>
+    <f:facet name="second">
+      <af:table value="#{bindings.TPrimkeSta1.collectionModel}" var="row" rows="#{bindings.TPrimkeSta1.rangeSize}"
+                emptyText="#{bindings.TPrimkeSta1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                rowBandingInterval="0" selectedRowKeys="#{bindings.TPrimkeSta1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.TPrimkeSta1.collectionModel.makeCurrent}" rowSelection="single"
+                fetchSize="#{bindings.TPrimkeSta1.rangeSize}" filterModel="#{bindings.TPrimkeSta1Query.queryDescriptor}"
+                queryListener="#{bindings.TPrimkeSta1Query.processQuery}" filterVisible="true" varStatus="vs" id="t1">
+        <af:column sortProperty="#{bindings.TPrimkeSta1.hints.ArtiklSifra.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TPrimkeSta1.hints.ArtiklSifra.label}" id="c1">
+          <af:outputText value="#{row.ArtiklSifra} #{row.ArtikliExpr}" shortDesc="#{bindings.TPrimkeSta1.hints.ArtiklSifra.tooltip}"
+                         id="ot1"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.TPrimkeSta1.hints.Kolicina.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TPrimkeSta1.hints.Kolicina.label}" id="c3">
+          <af:outputText value="#{row.Kolicina}" shortDesc="#{bindings.TPrimkeSta1.hints.Kolicina.tooltip}" id="ot3">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TPrimkeSta1.hints.Kolicina.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TPrimkeSta1.hints.NabavnaCijena.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TPrimkeSta1.hints.NabavnaCijena.label}" id="c4">
+          <af:outputText value="#{row.NabavnaCijena}" shortDesc="#{bindings.TPrimkeSta1.hints.NabavnaCijena.tooltip}"
+                         id="ot4">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TPrimkeSta1.hints.NabavnaCijena.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TPrimkeSta1.hints.Iznos.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TPrimkeSta1.hints.Iznos.label}" id="c5">
+          <af:outputText value="#{row.Iznos}" shortDesc="#{bindings.TPrimkeSta1.hints.Iznos.tooltip}" id="ot5">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.TPrimkeSta1.hints.Iznos.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="#{bindings.TPrimkeSta1.hints.AuditDodano.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TPrimkeSta1.hints.AuditDodano.label}" id="c6">
+          <af:outputText value="#{row.AuditDodano}" shortDesc="#{bindings.TPrimkeSta1.hints.AuditDodano.tooltip}"
+                         id="ot6"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.TPrimkeSta1.hints.AuditIzmjena.name}" filterable="true" sortable="true"
+                   headerText="#{bindings.TPrimkeSta1.hints.AuditIzmjena.label}" id="c7">
+          <af:outputText value="#{row.AuditIzmjena}" shortDesc="#{bindings.TPrimkeSta1.hints.AuditIzmjena.tooltip}"
+                         id="ot7"/>
+        </af:column>
+      </af:table>
+    </f:facet>
+  </af:panelSplitter>
+</ui:composition>

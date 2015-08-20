@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.8" id="DataBindings"
+             SeparateXMLFiles="false" Package="hr.iii.skladiste.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/TaskFlows/Primke/editPrimke.xml#editPrimke@CreateInsert"
+          usageId="hr_iii_skladiste_view_editPrimke_editPrimke_CreateInsertPageDef"/>
+    <page path="/pages/fragments/primke/primkeEdit.jsff" usageId="hr_iii_skladiste_view_primkeEditPageDef"/>
+    <page path="/pages/primke.jsf" usageId="hr_iii_skladiste_view_primkePageDef"/>
+    <page path="/pages/fragments/primke/primkeBrowse.jsff" usageId="hr_iii_skladiste_view_primkeBrowsePageDef"/>
+    <page path="/WEB-INF/TaskFlows/Primke/editPrimke.xml#editPrimke@SetCurrentRowWithKeyValue"
+          usageId="hr_iii_skladiste_view_editPrimke_editPrimke_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/WEB-INF/TaskFlows/izdatnice/izdatniceEdit.xml#izdatniceEdit@CreateInsert"
+          usageId="hr_iii_skladiste_view_izdatniceEdit_izdatniceEdit_CreateInsertPageDef"/>
+    <page path="/WEB-INF/TaskFlows/izdatnice/izdatniceEdit.xml#izdatniceEdit@SetCurrentRowWithKeyValue"
+          usageId="hr_iii_skladiste_view_izdatniceEdit_izdatniceEdit_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/pages/fragments/izdatnice/IzdatniceBrowse.jsff"
+          usageId="hr_iii_skladiste_view_IzdatniceBrowsePageDef"/>
+    <page path="/pages/fragments/izdatnice/editIzdatnice.jsf" usageId="hr_iii_skladiste_view_editIzdatnicePageDef"/>
+    <page path="/pages/izdatnice.jsf" usageId="hr_iii_skladiste_view_izdatnicePageDef"/>
+    <page path="/pages/izdatnice.jsf" usageId="hr_iii_skladiste_view_izdatnicePageDef1"/>
+    <page path="/pages/fragments/izdatnice/Izdatnice.jsf" usageId="hr_iii_skladiste_view_IzdatnicePageDef"/>
+    <page path="/izdatnice2.jsf" usageId="hr_iii_skladiste_view_izdatnice2PageDef"/>
+    <page path="/pages/fragments/izdatnice/IzdBrowse.jsff" usageId="hr_iii_skladiste_view_IzdBrowsePageDef"/>
+    <page path="/WEB-INF/TaskFlows/izdatnice/editIzdatniceTF.xml#editIzdatniceTF@CreateInsert"
+          usageId="hr_iii_skladiste_view_editIzdatniceTF_editIzdatniceTF_CreateInsertPageDef"/>
+    <page path="/WEB-INF/TaskFlows/izdatnice/editIzdatniceTF.xml#editIzdatniceTF@SetCurrentRowWithKeyValue"
+          usageId="hr_iii_skladiste_view_editIzdatniceTF_editIzdatniceTF_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/pages/fragments/izdatnice/editIzdatnice.jsff" usageId="hr_iii_skladiste_view_editIzdatnicePageDef1"/>
+    <page path="/untitled1.jsf" usageId="hr_iii_skladiste_view_untitled1PageDef"/>
+    <page path="/pages/fragments/primke/browsePrimke.jsff" usageId="hr_iii_skladiste_view_browsePrimkePageDef"/>
+    <page path="/pages/fragments/primke/editPrimke.jsff" usageId="hr_iii_skladiste_view_editPrimkePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="hr_iii_skladiste_view_editPrimke_editPrimke_CreateInsertPageDef"
+          path="TaskFlows.Primke.editPrimke_editPrimke_CreateInsertPageDef"/>
+    <page id="hr_iii_skladiste_view_primkeEditPageDef" path="pages.fragments.primke.primkeEditPageDef"/>
+    <page id="hr_iii_skladiste_view_primkePageDef" path="pages.primkePageDef"/>
+    <page id="hr_iii_skladiste_view_primkeBrowsePageDef" path="pages.fragments.primke.primkeBrowsePageDef"/>
+    <page id="hr_iii_skladiste_view_editPrimke_editPrimke_SetCurrentRowWithKeyValuePageDef"
+          path="TaskFlows.Primke.editPrimke_editPrimke_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="hr_iii_skladiste_view_izdatniceEdit_izdatniceEdit_CreateInsertPageDef"
+          path="TaskFlows.izdatnice.izdatniceEdit_izdatniceEdit_CreateInsertPageDef"/>
+    <page id="hr_iii_skladiste_view_izdatniceEdit_izdatniceEdit_SetCurrentRowWithKeyValuePageDef"
+          path="TaskFlows.izdatnice.izdatniceEdit_izdatniceEdit_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="hr_iii_skladiste_view_IzdatniceBrowsePageDef" path="pages.fragments.izdatnice.IzdatniceBrowsePageDef"/>
+    <page id="hr_iii_skladiste_view_editIzdatnicePageDef" path="pages.fragments.izdatnice.editIzdatnicePageDef"/>
+    <page id="hr_iii_skladiste_view_izdatnicePageDef" path="pages.izdatnicePageDef"/>
+    <page id="hr_iii_skladiste_view_izdatnicePageDef1" path="hr.iii.skladiste.view.pageDefs.izdatnicePageDef"/>
+    <page id="hr_iii_skladiste_view_IzdatnicePageDef" path="pages.fragments.izdatnice.IzdatnicePageDef"/>
+    <page id="hr_iii_skladiste_view_izdatnice2PageDef" path="hr.iii.skladiste.view.pageDefs.izdatnice2PageDef"/>
+    <page id="hr_iii_skladiste_view_IzdBrowsePageDef" path="pages.fragments.izdatnice.IzdBrowsePageDef"/>
+    <page id="hr_iii_skladiste_view_editIzdatniceTF_editIzdatniceTF_CreateInsertPageDef"
+          path="TaskFlows.izdatnice.editIzdatniceTF_editIzdatniceTF_CreateInsertPageDef"/>
+    <page id="hr_iii_skladiste_view_editIzdatniceTF_editIzdatniceTF_SetCurrentRowWithKeyValuePageDef"
+          path="TaskFlows.izdatnice.editIzdatniceTF_editIzdatniceTF_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="hr_iii_skladiste_view_editIzdatnicePageDef1" path="pages.fragments.izdatnice.editIzdatnicePageDef1"/>
+    <page id="hr_iii_skladiste_view_untitled1PageDef" path="hr.iii.skladiste.view.pageDefs.untitled1PageDef"/>
+    <page id="hr_iii_skladiste_view_browsePrimkePageDef" path="pages.fragments.primke.browsePrimkePageDef"/>
+    <page id="hr_iii_skladiste_view_editPrimkePageDef" path="pages.fragments.primke.editPrimkePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleAMDataControl" Package="hr.iii.skladiste.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

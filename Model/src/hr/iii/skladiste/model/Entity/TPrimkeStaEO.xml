@@ -10,19 +10,22 @@
    DBObjectType="table"
    DBObjectName="T_PRIMKE_STA"
    AliasName="TPrimkeStaEO"
-   BindingStyle="OracleName" >
+   BindingStyle="OracleName"
+   xmlns:validation="http://xmlns.oracle.com/adfm/validation">
    <Attribute
       Name="Id"
-      IsNotNull="true"
       Precision="20"
       Scale="0"
       ColumnName="ID"
       SQLType="NUMERIC"
-      Type="java.lang.Integer"
+      Type="oracle.jbo.domain.DBSequence"
       ColumnType="NUMBER"
       TableName="T_PRIMKE_STA"
       PrimaryKey="true"
-      IsUpdateable="while_insert">
+      IsUpdateable="while_insert"
+      DefaultValue="@0"
+      Domain="oracle.jbo.domain.DBSequence"
+      RetrievedOnInsert="true">
       <TransientExpression><![CDATA[
 (new oracle.jbo.server.SequenceImpl("SEKVENCA_ZA_ID", adf.object.getDBTransaction()))
       ]]></TransientExpression>
@@ -59,9 +62,6 @@
       TableName="T_PRIMKE_STA"
       RetrievedOnInsert="true"
       IsUpdateable="while_insert">
-      <TransientExpression><![CDATA[
-(new oracle.jbo.server.SequenceImpl("SEKVENCA_ZA_ID", adf.object.getDBTransaction()))
-      ]]></TransientExpression>
       <RecalcCondition
          trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
    </Attribute>
@@ -85,6 +85,21 @@
                ResId="hr.iii.skladiste.model.Entity.TPrimkeStaEO.Kolicina_FMT_FORMAT"/>
          </SchemaBasedProperties>
       </Properties>
+      <validation:CompareValidationBean
+         Name="KolicinaRuleMoreThan0"
+         ResId="hr.iii.skladiste.model.Entity.TPrimkeStaEO.Kolicina_Rule_0"
+         OnAttribute="Kolicina"
+         OperandType="LITERAL"
+         Inverse="false"
+         CompareType="GREATERTHANEQUALTO"
+         CompareValue="0">
+         <validation:ResExpressions
+            Name="KolicinaRuleMoreThan0_ResExprList">
+            <validation:Expression
+               trustMode="untrusted"
+               Name="0"><![CDATA[adf.object.hints.Kolicina.label]]></validation:Expression>
+         </validation:ResExpressions>
+      </validation:CompareValidationBean>
    </Attribute>
    <Attribute
       Name="NabavnaCijena"
@@ -161,6 +176,25 @@
       Type="oracle.jbo.server.EntityImpl"
       IsUpdateable="true">
    </AccessorAttribute>
+   <AccessorAttribute
+      Name="MArtikli"
+      Association="hr.iii.skladiste.model.Entity.Assoc.References.PriStaArtFKAssoc"
+      AssociationEnd="hr.iii.skladiste.model.Entity.Assoc.References.PriStaArtFKAssoc.MArtikli"
+      AssociationOtherEnd="hr.iii.skladiste.model.Entity.Assoc.References.PriStaArtFKAssoc.TPrimkeSta"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false"/>
+   <Key
+      Name="ArtiklPrimkaUK"
+      AltKey="true">
+      <DesignTime>
+         <Attr Name="_isUnique" Value="true"/>
+         <Attr Name="_DBObjectName" Value="T_PRIMKE_STA"/>
+      </DesignTime>
+      <AttrArray Name="Attributes">
+         <Item Value="hr.iii.skladiste.model.Entity.TPrimkeStaEO.IdArtikla"/>
+         <Item Value="hr.iii.skladiste.model.Entity.TPrimkeStaEO.IdPrimke"/>
+      </AttrArray>
+   </Key>
    <Key
       Name="IdPri" >
       <DesignTime>
@@ -238,6 +272,23 @@
          <Item Value="hr.iii.skladiste.model.Entity.TPrimkeStaEO.IdPrimke" />
       </AttrArray>
    </Key>
+   <validation:UniqueKeyValidationBean
+      Name="TPrimkeStaEORule0"
+      ResId="hr.iii.skladiste.model.Entity.TPrimkeStaEO_Rule_0"
+      KeyName="ArtiklPrimkaUK">
+      <validation:OnAttributes>
+         <validation:Item
+            Value="IdArtikla"/>
+         <validation:Item
+            Value="IdPrimke"/>
+      </validation:OnAttributes>
+      <validation:ResExpressions
+         Name="TPrimkeStaEORule0_ResExprList">
+         <validation:Expression
+            trustMode="untrusted"
+            Name="0"><![CDATA[adf.object.hints.IdArtikla.label]]></validation:Expression>
+      </validation:ResExpressions>
+   </validation:UniqueKeyValidationBean>
    <ResourceBundle>
       <PropertiesBundle
          PropertiesFile="hr.iii.skladiste.model.ModelBundle"/>

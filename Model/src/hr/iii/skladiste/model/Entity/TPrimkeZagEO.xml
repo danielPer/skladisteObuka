@@ -9,19 +9,22 @@
   DBObjectType="table"
   DBObjectName="T_PRIMKE_ZAG"
   AliasName="TPrimkeZagEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="Id"
     Precision="20"
     Scale="0"
     ColumnName="ID"
     SQLType="NUMERIC"
-    Type="java.lang.Integer"
+    Type="oracle.jbo.domain.DBSequence"
     ColumnType="NUMBER"
     TableName="T_PRIMKE_ZAG"
     PrimaryKey="true"
-    IsNotNull="true"
-    IsUpdateable="while_insert">
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true">
     <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("SEKVENCA_ZA_ID", adf.object.getDBTransaction()))]]></TransientExpression>
     <RecalcCondition
       trustMode="untrusted"><![CDATA[true]]></RecalcCondition>
@@ -42,6 +45,16 @@
           ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.IdDobavljaca_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:ExistsValidationBean
+      Name="IdDobavljacaRule0"
+      ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.IdDobavljaca_Rule_0"
+      OperandType="VO"
+      Target="hr.iii.skladiste.View.MDobavljaciVO">
+      <validation:TargetAttributes>
+        <validation:Item
+          Value="Id"/>
+      </validation:TargetAttributes>
+    </validation:ExistsValidationBean>
   </Attribute>
   <Attribute
     Name="IdSkladista"
@@ -59,6 +72,16 @@
           ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.IdSkladista_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:ExistsValidationBean
+      Name="IdSkladistaRule0"
+      ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.IdSkladista_Rule_0"
+      OperandType="VO"
+      Target="hr.iii.skladiste.View.MSkladistaVO">
+      <validation:TargetAttributes>
+        <validation:Item
+          Value="Id"/>
+      </validation:TargetAttributes>
+    </validation:ExistsValidationBean>
   </Attribute>
   <Attribute
     Name="Broj"
@@ -79,6 +102,19 @@
           ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.Broj_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:RegExpValidationBean
+      Name="BrojRulePattern"
+      OnAttribute="Broj"
+      Pattern="^([1][9]\d{2}|[2][0][0-9]{2})-[0-9]{1,3}"
+      Inverse="false"
+      ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO.Broj_Rule_0">
+      <validation:ResExpressions
+        Name="BrojRulePattern_ResExprList">
+        <validation:Expression
+          trustMode="untrusted"
+          Name="0"><![CDATA[adf.object.hints.Broj.label]]></validation:Expression>
+      </validation:ResExpressions>
+    </validation:RegExpValidationBean>
   </Attribute>
   <Attribute
     Name="DatumIsporuke"
@@ -225,6 +261,20 @@
     AssociationOtherEnd="hr.iii.skladiste.model.Entity.Assoc.PristaPrizagfkAssoc.TPrimkeZag"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="MDobavljaci"
+    Association="hr.iii.skladiste.model.Entity.Assoc.References.PriZagDobFKAssoc"
+    AssociationEnd="hr.iii.skladiste.model.Entity.Assoc.References.PriZagDobFKAssoc.MDobavljaci"
+    AssociationOtherEnd="hr.iii.skladiste.model.Entity.Assoc.References.PriZagDobFKAssoc.TPrimkeZag"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="MSkladista"
+    Association="hr.iii.skladiste.model.Entity.Assoc.References.PriZagSklaFKAssoc"
+    AssociationEnd="hr.iii.skladiste.model.Entity.Assoc.References.PriZagSklaFKAssoc.MSkladista"
+    AssociationOtherEnd="hr.iii.skladiste.model.Entity.Assoc.References.PriZagSklaFKAssoc.TPrimkeZag"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="DatIsporukedatzaprimanjack">
     <DesignTime>
@@ -307,6 +357,21 @@
       <Item Value="hr.iii.skladiste.model.Entity.TPrimkeZagEO.IdSkladista"/>
     </AttrArray>
   </Key>
+  <validation:CompareValidationBean
+    Name="TPrimkeZagEODatumiUsp"
+    ResId="hr.iii.skladiste.model.Entity.TPrimkeZagEO_Rule_0"
+    OnAttribute="DatumIsporuke"
+    OperandType="ATTR"
+    Inverse="false"
+    CompareType="LESSTHANEQUALTO"
+    CompareValue="DatumZaprimanja">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="DatumIsporuke"/>
+      <validation:Item
+        Value="DatumZaprimanja"/>
+    </validation:OnAttributes>
+  </validation:CompareValidationBean>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="hr.iii.skladiste.model.ModelBundle"/>

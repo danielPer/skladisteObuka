@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelFormLayout id="pfl1">
+    <af:panelFormLayout id="pfl2" labelAlignment="start">
+      <af:panelLabelAndMessage label="#{bindings.SkladisteSifra.hints.label}" id="plam1">
+        <af:inputListOfValues id="skladisteSifraId"
+                              popupTitle="Search and Select: #{bindings.SkladisteSifra.hints.label}"
+                              value="#{bindings.SkladisteSifra.inputValue}"
+                              label="#{bindings.SkladisteSifra.hints.label}"
+                              model="#{bindings.SkladisteSifra.listOfValuesModel}"
+                              required="#{bindings.SkladisteSifra.hints.mandatory}"
+                              columns="#{bindings.SkladisteSifra.hints.displayWidth}"
+                              shortDesc="#{bindings.SkladisteSifra.hints.tooltip}" autoSubmit="true" simple="true">
+          <f:validator binding="#{bindings.SkladisteSifra.validator}"/>
+          <af:autoSuggestBehavior maxSuggestedItems="10" suggestItems="#{bindings.SkladisteSifra.suggestItems}"/>
+        </af:inputListOfValues>
+        <af:inputText value="#{bindings.SkladisteExpr.inputValue}" label="#{bindings.SkladisteExpr.hints.label}"
+                      required="#{bindings.SkladisteExpr.hints.mandatory}"
+                      columns="#{bindings.SkladisteExpr.hints.displayWidth}"
+                      maximumLength="#{bindings.SkladisteExpr.hints.precision}"
+                      shortDesc="#{bindings.SkladisteExpr.hints.tooltip}" partialTriggers="skladisteSifraId" id="it1"
+                      simple="true" readOnly="true">
+          <f:validator binding="#{bindings.SkladisteExpr.validator}"/>
+        </af:inputText>
+      </af:panelLabelAndMessage>
+      <af:panelLabelAndMessage label="#{bindings.MTSifra.hints.label}" id="plam2">
+        <af:inputListOfValues id="mTSifraId" popupTitle="Search and Select: #{bindings.MTSifra.hints.label}"
+                              value="#{bindings.MTSifra.inputValue}" label="#{bindings.MTSifra.hints.label}"
+                              model="#{bindings.MTSifra.listOfValuesModel}"
+                              required="#{bindings.MTSifra.hints.mandatory}"
+                              columns="#{bindings.MTSifra.hints.displayWidth}"
+                              shortDesc="#{bindings.MTSifra.hints.tooltip}" autoSubmit="true" simple="true">
+          <f:validator binding="#{bindings.MTSifra.validator}"/>
+          <af:autoSuggestBehavior maxSuggestedItems="10" suggestItems="#{bindings.MTSifra.suggestItems}"/>
+        </af:inputListOfValues>
+        <af:inputText value="#{bindings.MTExpr.inputValue}" label="#{bindings.MTExpr.hints.label}"
+                      required="#{bindings.MTExpr.hints.mandatory}" columns="#{bindings.MTExpr.hints.displayWidth}"
+                      maximumLength="#{bindings.MTExpr.hints.precision}" shortDesc="#{bindings.MTExpr.hints.tooltip}"
+                      partialTriggers="mTSifraId" id="it2" simple="true" readOnly="true">
+          <f:validator binding="#{bindings.MTExpr.validator}"/>
+        </af:inputText>
+      </af:panelLabelAndMessage>
+      <af:inputText value="#{bindings.Broj.inputValue}" label="#{bindings.Broj.hints.label}"
+                    required="#{bindings.Broj.hints.mandatory}" columns="#{bindings.Broj.hints.displayWidth}"
+                    maximumLength="#{bindings.Broj.hints.precision}" shortDesc="#{bindings.Broj.hints.tooltip}"
+                    id="it3">
+        <f:validator binding="#{bindings.Broj.validator}"/>
+      </af:inputText>
+      <af:inputDate value="#{bindings.Datum.inputValue}" label="#{bindings.Datum.hints.label}"
+                    required="#{bindings.Datum.hints.mandatory}" columns="#{bindings.Datum.hints.displayWidth}"
+                    shortDesc="#{bindings.Datum.hints.tooltip}" id="id1">
+        <f:validator binding="#{bindings.Datum.validator}"/>
+        <af:convertDateTime pattern="#{bindings.Datum.format}" secondaryPattern="ddMMMyyyy"/>
+      </af:inputDate>
+      <af:inputText value="#{bindings.Opis.inputValue}" label="#{bindings.Opis.hints.label}"
+                    required="#{bindings.Opis.hints.mandatory}" columns="#{bindings.Opis.hints.displayWidth}"
+                    maximumLength="#{bindings.Opis.hints.precision}" shortDesc="#{bindings.Opis.hints.tooltip}"
+                    id="it4">
+        <f:validator binding="#{bindings.Opis.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.OpisDuzi.inputValue}" label="#{bindings.OpisDuzi.hints.label}"
+                    required="#{bindings.OpisDuzi.hints.mandatory}" columns="#{bindings.OpisDuzi.hints.displayWidth}"
+                    maximumLength="#{bindings.OpisDuzi.hints.precision}" shortDesc="#{bindings.OpisDuzi.hints.tooltip}"
+                    id="it5">
+        <f:validator binding="#{bindings.OpisDuzi.validator}"/>
+      </af:inputText>
+      <af:selectOneChoice value="#{bindings.OznakaPotvrde.inputValue}" label="#{bindings.OznakaPotvrde.label}"
+                          required="#{bindings.OznakaPotvrde.hints.mandatory}"
+                          shortDesc="#{bindings.OznakaPotvrde.hints.tooltip}" id="soc1">
+        <f:selectItems value="#{bindings.OznakaPotvrde.items}" id="si1"/>
+        <f:validator binding="#{bindings.OznakaPotvrde.validator}"/>
+      </af:selectOneChoice>
+      <af:panelLabelAndMessage label="#{bindings.Suma.hints.label}" id="plam3" rendered="false">
+        <af:outputText value="#{bindings.Suma.inputValue}" shortDesc="#{bindings.Suma.hints.tooltip}" id="ot1">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.Suma.format}"/>
+        </af:outputText>
+      </af:panelLabelAndMessage>
+    </af:panelFormLayout>
+    <f:facet name="footer">
+      <af:toolbar id="t2">
+        <af:button text="Spremi" id="b1" action="ok"/>
+        <af:button text="Odustani" id="b2" action="cancel" immediate="true"/>
+        <af:button actionListener="#{bindings.CreateInsert.execute}" text="Dodaj stavku"
+                   disabled="#{!bindings.CreateInsert.enabled}" id="b3"/>
+        <af:button actionListener="#{bindings.Delete.execute}" text="Ukloni stavku"
+                   disabled="#{!bindings.Delete.enabled}" id="b4"/>
+      </af:toolbar>
+    </f:facet>
+  </af:panelFormLayout>
+  <af:table value="#{bindings.TIzdatniceSta1.collectionModel}" var="row" rows="#{bindings.TIzdatniceSta1.rangeSize}"
+            emptyText="#{bindings.TIzdatniceSta1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            rowBandingInterval="0" selectedRowKeys="#{bindings.TIzdatniceSta1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.TIzdatniceSta1.collectionModel.makeCurrent}" rowSelection="single"
+            fetchSize="#{bindings.TIzdatniceSta1.rangeSize}" id="t1" partialTriggers="::b3 ::b4"
+            columnStretching="column:c1">
+    <af:column headerText="#{bindings.TIzdatniceSta1.hints.ArtiklSifra.label}" id="c1">
+      <af:panelGroupLayout id="pgl1" layout="horizontal">
+        <af:inputListOfValues id="artiklSifraId"
+                              popupTitle="Search and Select: #{bindings.TIzdatniceSta1.hints.ArtiklSifra.label}"
+                              value="#{row.bindings.ArtiklSifra.inputValue}"
+                              model="#{row.bindings.ArtiklSifra.listOfValuesModel}"
+                              required="#{bindings.TIzdatniceSta1.hints.ArtiklSifra.mandatory}"
+                              columns="#{bindings.TIzdatniceSta1.hints.ArtiklSifra.displayWidth}"
+                              shortDesc="#{bindings.TIzdatniceSta1.hints.ArtiklSifra.tooltip}" autoSubmit="true">
+          <f:validator binding="#{row.bindings.ArtiklSifra.validator}"/>
+          <af:autoSuggestBehavior maxSuggestedItems="10" suggestItems="#{row.bindings.ArtiklSifra.suggestItems}"/>
+        </af:inputListOfValues>
+        <af:inputText value="#{row.bindings.ArtiklExpr.inputValue}"
+                      label="#{bindings.TIzdatniceSta1.hints.ArtiklExpr.label}"
+                      required="#{bindings.TIzdatniceSta1.hints.ArtiklExpr.mandatory}"
+                      columns="#{bindings.TIzdatniceSta1.hints.ArtiklExpr.displayWidth}"
+                      maximumLength="#{bindings.TIzdatniceSta1.hints.ArtiklExpr.precision}"
+                      shortDesc="#{bindings.TIzdatniceSta1.hints.ArtiklExpr.tooltip}" id="it6" readOnly="true">
+          <f:validator binding="#{row.bindings.ArtiklExpr.validator}"/>
+        </af:inputText>
+      </af:panelGroupLayout>
+    </af:column>
+    <af:column headerText="#{bindings.TIzdatniceSta1.hints.Kolicina.label}" id="c3" align="right">
+      <af:inputText value="#{row.bindings.Kolicina.inputValue}" label="#{bindings.TIzdatniceSta1.hints.Kolicina.label}"
+                    required="#{bindings.TIzdatniceSta1.hints.Kolicina.mandatory}"
+                    columns="#{bindings.TIzdatniceSta1.hints.Kolicina.displayWidth}"
+                    maximumLength="#{bindings.TIzdatniceSta1.hints.Kolicina.precision}"
+                    shortDesc="#{bindings.TIzdatniceSta1.hints.Kolicina.tooltip}" id="it7" autoSubmit="true">
+        <f:validator binding="#{row.bindings.Kolicina.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.TIzdatniceSta1.hints.Kolicina.format}"/>
+      </af:inputText>
+    </af:column>
+    <af:column headerText="#{bindings.TIzdatniceSta1.hints.ProsjecnaCijena.label}" id="c4" align="right">
+      <af:inputText value="#{row.bindings.ProsjecnaCijena.inputValue}"
+                    label="#{bindings.TIzdatniceSta1.hints.ProsjecnaCijena.label}"
+                    required="#{bindings.TIzdatniceSta1.hints.ProsjecnaCijena.mandatory}"
+                    columns="#{bindings.TIzdatniceSta1.hints.ProsjecnaCijena.displayWidth}"
+                    maximumLength="#{bindings.TIzdatniceSta1.hints.ProsjecnaCijena.precision}"
+                    shortDesc="#{bindings.TIzdatniceSta1.hints.ProsjecnaCijena.tooltip}" id="it8" autoSubmit="true">
+        <f:validator binding="#{row.bindings.ProsjecnaCijena.validator}"/>
+        <af:convertNumber groupingUsed="false" pattern="#{bindings.TIzdatniceSta1.hints.ProsjecnaCijena.format}"/>
+      </af:inputText>
+    </af:column>
+    <af:column headerText="#{bindings.TIzdatniceSta1.hints.Iznos.label}" id="c2" align="right">
+      <af:outputText value="#{row.Iznos}" shortDesc="#{bindings.TIzdatniceSta1.hints.Iznos.tooltip}" id="ot2">
+        <af:convertNumber pattern="#{bindings.TIzdatniceSta1.hints.Iznos.format}"
+                          minIntegerDigits="1" minFractionDigits="2" maxFractionDigits="2"/>
+      </af:outputText>
+    </af:column>
+  </af:table>
+</ui:composition>

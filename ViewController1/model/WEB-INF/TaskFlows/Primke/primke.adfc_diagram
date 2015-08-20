@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">primkeBrowse</property>
+      <property
+         name="page">/pages/fragments/primke/primkeBrowse.jsff</property>
+      <property
+         name="start">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>primkeBrowse&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">311.94824</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">259.0</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="taskFlowId">editPrimke</property>
+      <property
+         name="activityId">editPrimke</property>
+      <property
+         name="documentReference">/WEB-INF/TaskFlows/Primke/editPrimke.xml</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>editPrimke&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">352.1494</property>
+      <property
+         name="x">514.5</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View5"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">edipPrimke</property>
+      <property
+         name="sdm:polyPoints">R50,286.00977,530.44824,473.5,351.79883,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View5">
+      <property
+         name="activityId">browsePrimke</property>
+      <property
+         name="page">/pages/fragments/primke/browsePrimke.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>browsePrimke&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">530.7988</property>
+      <property
+         name="x">245.00977</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+</SDM>

@@ -6,29 +6,35 @@
   Name="AppModuleAM"
   Version="12.1.3.10.8"
   InheritPersonalization="merge"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentClass="hr.iii.skladiste.model.am.AppModuleAMImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewUsage
     Name="TIzdatniceZag1"
     ViewObjectName="hr.iii.skladiste.model.VO.TIzdatniceZagVO"/>
   <ViewUsage
+    Name="TIzdatniceSta1"
+    ViewObjectName="hr.iii.skladiste.model.VO.TIzdatniceStaVO"
+    FetchSize="10"
+    RangeSize="10"/>
+  <ViewUsage
     Name="TPrimkeZag1"
     ViewObjectName="hr.iii.skladiste.model.VO.TPrimkeZagVO"/>
   <ViewUsage
-    Name="TIzdatniceSta2"
-    ViewObjectName="hr.iii.skladiste.model.VO.TIzdatniceStaVO"/>
-  <ViewUsage
-    Name="TPrimkeSta2"
+    Name="TPrimkeSta1"
     ViewObjectName="hr.iii.skladiste.model.VO.TPrimkeStaVO"/>
   <ViewLinkUsage
     Name="IzdstaIzdzagfkLink1"
     ViewLinkObjectName="hr.iii.skladiste.model.VO.link.IzdstaIzdzagfkLink"
     SrcViewUsageName="hr.iii.skladiste.model.am.AppModuleAM.TIzdatniceZag1"
-    DstViewUsageName="hr.iii.skladiste.model.am.AppModuleAM.TIzdatniceSta2"
+    DstViewUsageName="hr.iii.skladiste.model.am.AppModuleAM.TIzdatniceSta1"
     Reversed="false"/>
   <ViewLinkUsage
     Name="PristaPrizagfkLink1"
     ViewLinkObjectName="hr.iii.skladiste.model.VO.link.PristaPrizagfkLink"
     SrcViewUsageName="hr.iii.skladiste.model.am.AppModuleAM.TPrimkeZag1"
-    DstViewUsageName="hr.iii.skladiste.model.am.AppModuleAM.TPrimkeSta2"
+    DstViewUsageName="hr.iii.skladiste.model.am.AppModuleAM.TPrimkeSta1"
     Reversed="false"/>
 </AppModule>

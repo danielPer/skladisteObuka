@@ -250,6 +250,7 @@
                <list n="classPath">
                   <url path="../CommonLOVs/deploy/Skladiste_CommonLOVs.jar" jar-entry=""/>
                   <url path="../CommonLOVs/deploy/commonLOVlib.jar" jar-entry=""/>
+                  <url path="../SharedLOVs/deploy/SharedLovsLib.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>

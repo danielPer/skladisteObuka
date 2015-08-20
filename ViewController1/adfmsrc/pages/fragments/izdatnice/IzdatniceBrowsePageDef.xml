@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="IzdatniceBrowsePageDef"
+                Package="pages.fragments.izdatnice">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TIzdatniceZag1" RangeSize="25" DataControl="AppModuleAMDataControl" id="TIzdatniceZag1Iterator"/>
+    <iterator Binds="TIzdatniceSta1" RangeSize="5" DataControl="AppModuleAMDataControl" id="TIzdatniceSta1Iterator"
+              RowCountThreshold="-1"/>
+    <searchRegion Binds="TIzdatniceSta1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="TIzdatniceSta1Query"/>
+  </executables>
+  <bindings>
+    <action IterBinding="TIzdatniceZag1Iterator" id="Execute" InstanceName="AppModuleAMDataControl.TIzdatniceZag1"
+            DataControl="AppModuleAMDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <listOfValues IterBinding="TIzdatniceZag1Iterator" StaticList="false" Uses="LOV_SkladisteSifra"
+                  id="SkladisteSifra"/>
+    <listOfValues IterBinding="TIzdatniceZag1Iterator" StaticList="false" Uses="LOV_MTSifra" id="MTSifra"/>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="SkladisteExpr">
+      <AttrNames>
+        <Item Value="SkladisteExpr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="MTExpr">
+      <AttrNames>
+        <Item Value="MTExpr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="Broj">
+      <AttrNames>
+        <Item Value="Broj"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="Datum">
+      <AttrNames>
+        <Item Value="Datum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="Opis">
+      <AttrNames>
+        <Item Value="Opis"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="OpisDuzi">
+      <AttrNames>
+        <Item Value="OpisDuzi"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="TIzdatniceZag1Iterator" StaticList="false" Uses="LOV_OznakaPotvrde" id="OznakaPotvrde"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="TIzdatniceZag1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="TIzdatniceZag1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="TIzdatniceZag1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="TIzdatniceZag1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="Suma">
+      <AttrNames>
+        <Item Value="Suma"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="AuditDodano">
+      <AttrNames>
+        <Item Value="AuditDodano"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="AuditIzmjena">
+      <AttrNames>
+        <Item Value="AuditIzmjena"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="SkladisteSifra1">
+      <AttrNames>
+        <Item Value="SkladisteSifra"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="MTSifra1">
+      <AttrNames>
+        <Item Value="MTSifra"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="TIzdatniceSta1Iterator" id="TIzdatniceSta1">
+      <nodeDefinition DefName="hr.iii.skladiste.model.VO.TIzdatniceStaVO" Name="TIzdatniceSta10">
+        <AttrNames>
+          <Item Value="ArtiklSifra"/>
+          <Item Value="ArtiklExpr"/>
+          <Item Value="Kolicina"/>
+          <Item Value="ProsjecnaCijena"/>
+          <Item Value="Iznos"/>
+          <Item Value="AuditDodano"/>
+          <Item Value="AuditIzmjena"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

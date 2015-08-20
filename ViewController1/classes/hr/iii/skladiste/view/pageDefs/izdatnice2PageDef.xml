@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="izdatnice2PageDef"
+                Package="hr.iii.skladiste.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TIzdatniceZag1" RangeSize="25" DataControl="AppModuleAMDataControl" id="TIzdatniceZag1Iterator"/>
+    <iterator Binds="TIzdatniceSta1" RangeSize="25" DataControl="AppModuleAMDataControl" id="TIzdatniceSta1Iterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="TIzdatniceZag1Iterator" StaticList="false" Uses="LOV_SkladisteSifra"
+                  id="SkladisteSifra"/>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="IdSkladista">
+      <AttrNames>
+        <Item Value="IdSkladista"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="Broj">
+      <AttrNames>
+        <Item Value="Broj"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="Datum">
+      <AttrNames>
+        <Item Value="Datum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="Opis">
+      <AttrNames>
+        <Item Value="Opis"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="OpisDuzi">
+      <AttrNames>
+        <Item Value="OpisDuzi"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="TIzdatniceZag1Iterator" StaticList="false" Uses="LOV_OznakaPotvrde" id="OznakaPotvrde"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="UserDodavanja">
+      <AttrNames>
+        <Item Value="UserDodavanja"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="DatumDodavanja">
+      <AttrNames>
+        <Item Value="DatumDodavanja"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="UserIzmjene">
+      <AttrNames>
+        <Item Value="UserIzmjene"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="DatumIzmjene">
+      <AttrNames>
+        <Item Value="DatumIzmjene"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="Id2">
+      <AttrNames>
+        <Item Value="Id2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="SkladisteNaziv">
+      <AttrNames>
+        <Item Value="SkladisteNaziv"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="SkladisteNazivDuzi">
+      <AttrNames>
+        <Item Value="SkladisteNazivDuzi"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="TIzdatniceZag1Iterator" id="SkladisteExpr">
+      <AttrNames>
+        <Item Value="SkladisteExpr"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="TIzdatniceZag1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="TIzdatniceZag1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="TIzdatniceZag1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="TIzdatniceZag1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="TIzdatniceSta1Iterator" id="TIzdatniceSta1">
+      <nodeDefinition DefName="hr.iii.skladiste.model.VO.TIzdatniceStaVO" Name="TIzdatniceSta10">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="IdArtikla"/>
+          <Item Value="IdIzdatnice"/>
+          <Item Value="Kolicina"/>
+          <Item Value="ProsjecnaCijena"/>
+          <Item Value="UserDodavanja"/>
+          <Item Value="DatumDodavanja"/>
+          <Item Value="UserIzmjene"/>
+          <Item Value="DatumIzmjene"/>
+          <Item Value="ArtiklSifra"/>
+          <Item Value="Naziv"/>
+          <Item Value="NazivDuzi"/>
+          <Item Value="Id1"/>
+          <Item Value="ArtiklExpr"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="TIzdatniceSta1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="TIzdatniceZag1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>
